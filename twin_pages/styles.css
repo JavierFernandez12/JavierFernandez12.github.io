@@ -1,0 +1,88 @@
+body {
+    margin: 0;
+    font-family: 'Georgia', serif;
+    background: url('imagenes/unnamed.png') no-repeat center center fixed;
+    background-size: cover;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  .menu {
+    background-color: #f1c27d;
+    width: 320px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  }
+  
+  h1 {
+    font-family: monospace;
+    font-style: bold;
+    font-size: 38px;
+  }
+  
+  .fecha {
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
+    font-size: 0.9em;
+    margin-bottom: 10px;
+    font-style: bold;
+  }
+  
+  hr {
+    border: 1px;
+    height: 4px;
+    background-color: #8b0000;
+    margin: 10px 0;
+  }
+  
+  h2 {
+    font-family:monospace;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 30px;
+    font-style: bold;
+  }
+  
+  .item {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+    font-size: 1em;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+img{
+  height: 35px;
+}
+
+  .final {
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 10px;
+    font-size: 0.8em;
+    color: #000000;
+  }
+
+  .enlace {
+    margin-top: 10px;
+    font-size: 0.8em;
+  }
+
+  a{
+    color: rgb(196, 139, 33);
+  }
+
+  a:hover{
+color: red;
+  }
+  a:active{
+    color: white;
+  }
+  a:visited{
+    color: black;
+  }
