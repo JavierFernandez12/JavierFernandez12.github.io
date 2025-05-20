@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='my.css'>
+    <script src='utilidades1.js'></script>
+</head>
+<body onload="cargarDatos()">
+    <body style="background-color: rgb(114, 189, 1)">
+        <div class="tarjeta">
+            <h1 class="h1">Floating goldfinch</h1>
+
+            <table>
+                <tr>
+                    <td><input type="text" name="nombre1" readonly></td><td><input type="text" name="nombre2" readonly></td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="nombre3" readonly></td><td><input type="text" name="nombre4" readonly></td>
+                </tr>
+            </table>
+<a href="resultado.html"><input type="text" name="fecha1"></a><br>
+<a href="resultado.html"><input type="text" name="fecha2"></a>
+
+
+        </div>
+        <script>
+            function cargarDatos() {
+                setValue("nombre1", getValue("name1"));
+                setValue("nombre2", getValue("name2"));
+                setValue("nombre3", getValue("name3"));
+                setValue("nombre4", getValue("name4"));
+                setValue("fecha1", getValue("date1"));
+                setValue("fecha2", getValue("date2"));
+            }
+        </script>
+</body>
+</html>
