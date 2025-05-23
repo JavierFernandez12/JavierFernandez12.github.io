@@ -5,11 +5,16 @@ body
   animation: gradientMove 8s ease infinite;
 }
 .portada{
-    background-color: white;
-    width: 60%;
-    margin: auto;
-    border: 10px solid black;
-    text-align: center;
+  background-color: white;
+  width: 60%;
+  margin: auto;
+  border: 10px solid black;
+  text-align: center;
+  padding-bottom: 5px;
+}
+
+.portada-todo{
+  margin-top: 150px;
 }
 .titulo{
   font-size: 48px;
