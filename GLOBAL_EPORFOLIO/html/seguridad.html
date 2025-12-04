@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security | Root Portfolio</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+    <header>
+        <h1><span>SECURITY</span></h1>
+
+    </header>
+
+    <nav>
+        <a href="../index.html">HOME</a>
+        <a href="seguridad.html" class="active">SECURITY</a>
+        <a href="bases.html">DATABASES</a>
+        <a href="iaw.html">IAW</a>
+        <a href="python.html">PYTHON</a>
+        <a href="global.html">GLOBAL</a>
+    </nav>
+
+    <main class="container">
+        <h2 class="module-title">Security Challenges</h2>
+
+        <article class="challenge-card">
+            <div class="card-header">
+                <h3>Challenge #1: attack_simulation</h3>
+                <span class="badge">SAD / Security</span>
+            </div>
+            <div class="card-body">
+                
+                <div class="section-title">1. Challenge Overview</div>
+                <p>
+                    In this task, I worked with dictionary generation tools to prepare for brute-force attacks. I used Pydictor to create two specific wordlists: one with numeric patterns and another with uppercase letters. Then, I used Dymerge to fuse these two lists into a single master dictionary named diccionarion.
+                </p>
+
+                <div class="section-title">2. Key Complex Concepts Learned</div>
+                <ul>
+                    <li><strong>Dictionary Merging:</strong> I learned how to combine multiple small, specific wordlists into a larger, more effective payload using tools like Dymerge, rather than relying on static lists.</li>
+                    <li><strong>Pattern-based Generation:</strong> I understood how to use Pydictor to generate passwords based on specific rules (length, character type) instead of random guessing.</li>
+                </ul>
+
+                <div class="section-title">3. Personal Reflection</div>
+                <p>
+                    At first, I felt a bit confused by the command-line flags of Pydictor. However, seeing Dymerge successfully combine the files gave me a sense of satisfaction. It felt like preparing the "ammunition" before the battle.
+                </p>
+
+                <div class="section-title">4. Proposed Improvements</div>
+                <p>
+                    The process was manual. To improve it, I would write a small Bash script that automatically installs the tools if they are missing and generates the dictionary with a single command to save time.
+                </p>
+
+                <div class="section-title">5. Technical Glossary</div>
+                <ul class="tech-list">
+                    <li><strong>Brute-force:</strong> A trial-and-error method used to decode encrypted data or passwords.</li>
+                    <li><strong>Wordlist:</strong> A text file containing a list of potential passwords used for attacks.</li>
+                    <li><strong>Base64:</strong> A binary-to-text encoding scheme that represents binary data in an ASCII string format.</li>
+                    <li><strong>Merge:</strong> The operation of combining two or more files or datasets into one.</li>
+                    <li><strong>Pydictor:</strong>A powerful dictionary builder tool written in Python.</li>
+                </ul>
+
+                <div class="rating-box">
+                    <strong>6. Assignment Rating:</strong> 8/10 <br>
+                    <strong>Feedback:</strong> Good introduction to the tools, but I would have liked to try generating a dictionary based on a specific person's social media data (profiling).
+                </div>
+            </div>
+        </article>
+   
+    </main>
+
+    <footer>
+        <p>&copy; Javier Fernández Rodríguez</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,128 @@
+/* --- CONFIGURACIÓN BÁSICA --- */
+body {
+    font-family: Arial, sans-serif; /* Fuente estándar, sin líos */
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; /* Gris muy clarito para no cansar la vista */
+    color: #333;
+}
+
+/* --- CABECERA (HEADER) --- */
+header {
+    background-color: #333; /* Negro suave */
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 4px solid #0056b3; /* Línea azul abajo */
+}
+
+header h1 {
+    margin: 0;
+}
+
+/* --- MENÚ DE NAVEGACIÓN --- */
+nav {
+    background-color: #e0e0e0;
+    text-align: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    margin: 0 15px; /* Separación entre enlaces */
+    padding: 5px 10px;
+}
+
+nav a:hover, nav a.active {
+    background-color: #0056b3; /* Azul al pasar el ratón */
+    color: white;
+    border-radius: 4px;
+}
+
+/* --- CONTENEDOR PRINCIPAL --- */
+.container {
+    width: 80%; /* Ocupa el 80% de la pantalla */
+    margin: 20px auto; /* Centrado automático */
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ccc; /* Borde simple */
+}
+
+.module-title {
+    color: #0056b3;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+/* --- TARJETA DE DESAFÍO (CHALLENGE) --- */
+.challenge-card {
+    border: 1px solid #ddd;
+    margin-bottom: 30px;
+    background-color: #fff;
+}
+
+.card-header {
+    background-color: #f0f0f0;
+    padding: 10px 15px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between; /* Título a la izq, etiqueta a la der */
+    align-items: center;
+}
+
+.card-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.badge {
+    background-color: #666;
+    color: white;
+    padding: 3px 8px;
+    font-size: 0.8rem;
+    border-radius: 3px;
+}
+
+.card-body {
+    padding: 15px;
+}
+
+/* --- SECCIONES DENTRO DEL DESAFÍO --- */
+.section-title {
+    font-weight: bold;
+    color: #0056b3;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+/* --- CAJA DE NOTA Y FEEDBACK --- */
+.rating-box {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #0056b3;
+    background-color: #eef6ff; /* Azul muy pálido */
+}
+
+/* --- LISTAS --- */
+ul {
+    margin-top: 5px;
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 5px;
+}
+
+/* --- PIE DE PÁGINA --- */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+    margin-top: 20px;
+}
