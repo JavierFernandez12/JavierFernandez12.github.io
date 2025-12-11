@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level Up Passport</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- 1. MODO OSCURO & NEÓN --- */
+        :root {
+            --bg-main: #0f172a;       /* Fondo principal */
+            --bg-secondary: #1e293b;  /* Fondo cartas */
+            --primary: #6366f1;       /* Indigo */
+            --accent: #10b981;        /* Verde éxito */
+            
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-main);
+            background-color: var(--bg-main);
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .ambient-light {
+            position: fixed; width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, rgba(15, 23, 42, 0) 70%);
+            border-radius: 50%; z-index: -1; pointer-events: none;
+        }
+        .light-1 { top: -100px; left: -100px; background: radial-gradient(circle, rgba(99, 102, 241, 0.2) 0%, rgba(0,0,0,0) 70%); }
+        .light-2 { bottom: 0; right: -100px; background: radial-gradient(circle, rgba(236, 72, 153, 0.15) 0%, rgba(0,0,0,0) 70%); }
+
+        h1, h2, h3, h4 {
+            font-family: 'Outfit', sans-serif;
+            color: var(--text-main); font-weight: 800; letter-spacing: -0.5px;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #818cf8 0%, #f472b6 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 2; }
+        section { padding: 100px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        a { text-decoration: none; transition: 0.3s; }
+
+        /* --- BOTONES --- */
+        .btn {
+            display: inline-block; padding: 14px 32px; border-radius: 50px;
+            font-weight: 600; cursor: pointer; text-align: center;
+            font-family: 'Outfit', sans-serif; transition: 0.3s; border: none;
+        }
+        .btn-primary {
+            background: linear-gradient(90deg, var(--primary), #4f46e5); color: white;
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.4); border: 1px solid rgba(255,255,255,0.1);
+        }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 0 30px rgba(99, 102, 241, 0.6); }
+
+        .btn-store {
+            background: rgba(255,255,255,0.05); color: white; border: 1px solid rgba(255,255,255,0.1);
+            display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px;
+            border-radius: 12px; font-weight: 500; font-size: 0.9rem;
+        }
+        .btn-store:hover { background: rgba(255,255,255,0.1); border-color: var(--primary); }
+
+        /* --- NAVBAR --- */
+        header { position: sticky; top: 20px; z-index: 1000; margin-bottom: 40px; }
+        .nav-glass {
+            background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,0.1); border-radius: 100px;
+            padding: 15px 30px; display: flex; justify-content: space-between; align-items: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3); max-width: 1100px; margin: 0 auto;
+        }
+        .logo { font-size: 1.5rem; font-weight: 900; color: white; display:flex; align-items:center; gap:8px;}
+        .logo span { color: var(--primary); }
+        nav ul { display: flex; gap: 30px; list-style: none; align-items: center; }
+        nav a { color: var(--text-muted); font-weight: 600; font-size: 0.95rem; }
+        nav a:hover { color: white; }
+
+        /* --- HERO --- */
+        #inicio { padding-top: 40px; border: none; }
+        .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 60px; align-items: center; }
+        .hero-text h1 { font-size: 4rem; line-height: 1.1; margin-bottom: 24px; text-shadow: 0 0 20px rgba(0,0,0,0.5); }
+        .hero-text p { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 40px; max-width: 500px; }
+
+        /* --- MÓVIL 3D --- */
+        .phone-container { perspective: 1000px; animation: float 6s ease-in-out infinite; }
+        .phone-mockup {
+            width: 300px; height: 600px; background: #020617; border-radius: 45px;
+            border: 8px solid #334155; box-shadow: 0 0 50px rgba(99, 102, 241, 0.2);
+            margin: auto; position: relative; overflow: hidden;
+            transform: rotateY(-15deg) rotateX(5deg); transition: transform 0.5s;
+        }
+        .phone-mockup:hover { transform: rotateY(0deg) rotateX(0deg); border-color: var(--primary); }
+        .phone-screen { background: #0f172a; width: 100%; height: 100%; border-radius: 35px; overflow: hidden; position: relative; }
+        
+        .passport-header { 
+            background: linear-gradient(180deg, rgba(99,102,241,0.2) 0%, rgba(15,23,42,0) 100%);
+            padding: 30px 20px; text-align: center;
+        }
+        .avatar { width: 60px; height: 60px; background: #e2e8f0; border-radius: 50%; margin: 0 auto 10px; border: 2px solid var(--primary); }
+        
+        .stamps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; padding: 20px; }
+        .stamp {
+            aspect-ratio: 1/1; border-radius: 50%; border: 2px dashed #334155;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem; color: #334155; transition: 0.3s;
+        }
+        .stamp.earned {
+            border: 2px solid var(--accent); background: rgba(16, 185, 129, 0.1);
+            color: var(--white); box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
+            animation: popIn 0.5s ease-out;
+        }
+        .stamp-label { font-size: 0.6rem; text-align: center; margin-top: 5px; color: var(--text-muted); }
+
+        /* --- CARDS GENERAL --- */
+        .card {
+            background: var(--bg-secondary); border: 1px solid rgba(255,255,255,0.05);
+            padding: 40px 30px; border-radius: 24px; transition: 0.4s;
+        }
+        .card:hover { transform: translateY(-10px); border-color: var(--primary); box-shadow: 0 10px 40px rgba(0,0,0,0.3); }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .icon-box {
+            font-size: 2rem; margin-bottom: 20px; background: rgba(99, 102, 241, 0.1);
+            width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;
+            border-radius: 15px; color: var(--primary);
+        }
+
+        /* --- PRECIOS INTERACTIVOS --- */
+        .pricing-switch-container {
+            display: flex; justify-content: center; margin-bottom: 50px;
+        }
+        .switch-box {
+            background: var(--bg-secondary); border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 50px; padding: 5px; display: flex; gap: 5px;
+        }
+        .switch-btn {
+            padding: 10px 25px; border-radius: 40px; cursor: pointer; color: var(--text-muted); font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .switch-btn.active {
+            background: var(--primary); color: white; box-shadow: 0 2px 10px rgba(99,102,241,0.4);
+        }
+        .switch-btn:hover:not(.active) { color: white; }
+
+        .price-card {
+            background: var(--bg-secondary); border-radius: 24px; padding: 40px 30px;
+            border: 1px solid rgba(255,255,255,0.05); text-align: left;
+            display: flex; flex-direction: column; height: 100%; transition: 0.3s;
+        }
+        .price-card:hover { border-color: rgba(255,255,255,0.2); }
+
+        .price-card.pro {
+            background: linear-gradient(160deg, #1e293b 0%, #312e81 100%);
+            border: 1px solid var(--primary); position: relative;
+            transform: scale(1.05); box-shadow: 0 0 40px rgba(99, 102, 241, 0.15);
+        }
+        .price-header { margin-bottom: 20px; }
+        .plan-name { font-size: 1.2rem; font-weight: 800; color: var(--text-main); margin-bottom: 5px; display: block;}
+        .plan-desc { font-size: 0.9rem; color: var(--text-muted); }
+        .price-tag { font-size: 3rem; font-weight: 800; color: white; margin: 20px 0; letter-spacing: -1px; transition: 0.3s;}
+        .price-period { font-size: 1rem; color: var(--text-muted); font-weight: 400; }
+        
+        .price-features { list-style: none; margin: 20px 0 40px; flex-grow: 1; }
+        .price-features li { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; color: #cbd5e1; font-size: 0.95rem; }
+        .check { color: var(--accent); font-weight: bold; }
+        .cross { color: #64748b; }
+        .f-muted { color: #64748b; text-decoration: line-through; }
+
+        .popular-badge {
+            position: absolute; top: -15px; left: 50%; transform: translateX(-50%);
+            background: var(--primary); color: white; padding: 5px 15px; border-radius: 20px;
+            font-size: 0.75rem; font-weight: 800; letter-spacing: 1px;
+        }
+
+        /* --- CONTACTO --- */
+        .contact-section { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .contact-form {
+            background: var(--bg-secondary); padding: 40px; border-radius: 24px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; color: var(--text-muted); font-size: 0.9rem; }
+        .form-control {
+            width: 100%; padding: 12px; background: #0f172a; border: 1px solid #334155;
+            border-radius: 8px; color: white; outline: none; transition: 0.3s;
+        }
+        .form-control:focus { border-color: var(--primary); }
+
+        /* --- ANIMACIONES --- */
+        @keyframes float { 0%, 100% { transform: translateY(0px) rotateY(-15deg) rotateX(5deg); } 50% { transform: translateY(-20px) rotateY(-15deg) rotateX(5deg); } }
+        @keyframes popIn { 0% { transform: scale(0); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero-grid, .contact-section { grid-template-columns: 1fr; text-align: center; }
+            .hero-text h1 { font-size: 2.8rem; }
+            .nav-glass { flex-direction: column; gap: 15px; border-radius: 20px; }
+            .phone-mockup { margin-top: 50px; transform: rotateY(0) rotateX(0); animation: none; }
+            nav ul { display: none; }
+            .price-card.pro { transform: scale(1); }
+            .contact-form { text-align: left; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ambient-light light-1"></div>
+    <div class="ambient-light light-2"></div>
+
+    <header>
+        <div class="nav-glass">
+            <div class="logo">
+                <div style="width:35px; height:35px; background:var(--primary); border-radius:10px; color:white; display:flex; align-items:center; justify-content:center; box-shadow: 0 0 15px var(--primary);">▲</div>
+                Level Up <span>Passport</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#features">Funcionalidades</a></li>
+                    <li><a href="#dashboard">Dashboard</a></li>
+                    <li><a href="#precios">Precios</a></li>
+                    <li><a href="#contacto" class="btn btn-primary" style="padding: 10px 25px; font-size:0.9rem; box-shadow:none;">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="inicio">
+        <div class="container hero-grid">
+            <div class="hero-text">
+                <h1>Colecciona logros.<br><span class="gradient-text">Gana sellos.</span></h1>
+                <p>La app que digitaliza el refuerzo positivo. Premia el buen comportamiento de tus alumnos otorgando <strong>sellos digitales</strong> en su pasaporte virtual.</p>
+                <div style="display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 30px;">
+                    <a href="#cta-final" class="btn btn-primary">Crear Pasaporte</a>
+                </div>
+                <div style="display: flex; gap: 15px;">
+                    <button class="btn-store">🍏 App Store</button>
+                    <button class="btn-store">🤖 Google Play</button>
+                </div>
+            </div>
+            <div class="phone-container">
+                <div class="phone-mockup">
+                    <div class="phone-screen">
+                        <div class="passport-header">
+                            <div class="avatar"></div>
+                            <h3 style="color:white; margin-bottom:5px;">Pasaporte de Alex</h3>
+                            <p style="color:#94a3b8; font-size:0.8rem;">3º Primaria - Clase A</p>
+                        </div>
+                        <div style="padding: 0 20px;">
+                            <p style="font-size:0.8rem; color:#94a3b8; text-transform:uppercase; letter-spacing:1px; margin-bottom:10px;">Mis Sellos Recientes</p>
+                        </div>
+                        <div class="stamps-grid">
+                            <div><div class="stamp earned">📚</div><div class="stamp-label" style="color:var(--accent)">Lectura</div></div>
+                            <div><div class="stamp earned">🤝</div><div class="stamp-label" style="color:var(--accent)">Ayuda</div></div>
+                            <div><div class="stamp">🔒</div><div class="stamp-label">Puntualidad</div></div>
+                            <div><div class="stamp earned">🎨</div><div class="stamp-label" style="color:var(--accent)">Creatividad</div></div>
+                            <div><div class="stamp">🔒</div><div class="stamp-label">Limpieza</div></div>
+                            <div><div class="stamp">🔒</div><div class="stamp-label">Deberes</div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 60px;">
+                <h2 style="font-size: 2.5rem;">Pasaporte de Sellos Digital</h2>
+                <p style="color: var(--text-muted);">Sustituye las pegatinas de papel por una experiencia interactiva.</p>
+            </div>
+            <div class="grid-3">
+                <div class="card">
+                    <div class="icon-box">🎖️</div>
+                    <h3>Sellos Personalizables</h3>
+                    <p style="color: var(--text-muted); margin-top: 10px;">Crea sellos para cualquier actividad. Tú pones las reglas.</p>
+                </div>
+                <div class="card">
+                    <div class="icon-box">📲</div>
+                    <h3>Feedback Inmediato</h3>
+                    <p style="color: var(--text-muted); margin-top: 10px;">Al pulsar un botón, el alumno recibe su sello con una animación.</p>
+                </div>
+                <div class="card">
+                    <div class="icon-box">👪</div>
+                    <h3>Familias Informadas</h3>
+                    <p style="color: var(--text-muted); margin-top: 10px;">Los padres pueden ver el pasaporte de sellos de sus hijos en tiempo real.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="precios">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 30px;">
+                <h2>Elige tu plan perfecto</h2>
+                <p style="color: var(--text-muted);">Invierte en la motivación de tus alumnos. Cancela cuando quieras.</p>
+            </div>
+
+            <div class="pricing-switch-container">
+                <div class="switch-box">
+                    <div id="btn-monthly" class="switch-btn active" onclick="switchPricing('monthly')">Mensual</div>
+                    <div id="btn-annual" class="switch-btn" onclick="switchPricing('annual')">Anual (-20%)</div>
+                </div>
+            </div>
+            
+            <div class="grid-3">
+                <div class="price-card">
+                    <div class="price-header">
+                        <span class="plan-name">Explorer</span>
+                        <span class="plan-desc">Para probar el sistema</span>
+                    </div>
+                    <div class="price-tag">0€</div>
+                    <ul class="price-features">
+                        <li><span class="check">✔</span> 1 Pasaporte de clase</li>
+                        <li><span class="check">✔</span> 20 Alumnos máximo</li>
+                        <li><span class="check">✔</span> 10 tipos de sellos</li>
+                        <li class="f-muted"><span class="cross">✕</span> Informes PDF</li>
+                    </ul>
+                    <a href="#cta-final" class="btn btn-store" style="width: 100%; justify-content: center; text-align: center;">Crear Cuenta Gratis</a>
+                </div>
+                
+                <div class="price-card pro">
+                    <div class="popular-badge">RECOMENDADO</div>
+                    <div class="price-header">
+                        <span class="plan-name">Maestro Pro</span>
+                        <span class="plan-desc">Potencia total para tu aula</span>
+                    </div>
+                    <div class="price-tag">
+                        <span id="price-value" style="font-size:3rem; font-weight:800; color:white;">4.99€</span>
+                        <span id="price-period" class="price-period">/mes</span>
+                    </div>
+
+                    <ul class="price-features">
+                        <li><span class="check">✔</span> Pasaportes Ilimitados</li>
+                        <li><span class="check">✔</span> Alumnos Ilimitados</li>
+                        <li><span class="check">✔</span> Sellos Personalizados</li>
+                        <li><span class="check">✔</span> Informes de Progreso PDF</li>
+                        <li><span class="check">✔</span> App para Familias</li>
+                    </ul>
+                    <a href="#cta-final" class="btn btn-primary" style="width: 100%; justify-content: center; text-align: center;">Empezar Prueba 14 días</a>
+                </div>
+
+                <div class="price-card">
+                    <div class="price-header">
+                        <span class="plan-name">Centros</span>
+                        <span class="plan-desc">Para colegios innovadores</span>
+                    </div>
+                    <div class="price-tag">A medida</div>
+                    <ul class="price-features">
+                        <li><span class="check">✔</span> Todo lo de Maestro Pro</li>
+                        <li><span class="check">✔</span> Panel de Dirección</li>
+                        <li><span class="check">✔</span> Gestión de profesores</li>
+                        <li><span class="check">✔</span> Formación al claustro</li>
+                    </ul>
+                    <a href="#contacto" class="btn btn-store" style="width: 100%; justify-content: center; text-align: center;">Contactar Ventas</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto">
+        <div class="container contact-section">
+            <div>
+                <h2 style="font-size: 3rem; line-height: 1.1; margin-bottom: 20px;">¿Tienes alguna <br><span class="gradient-text">duda?</span></h2>
+                <p style="font-size: 1.1rem; color: var(--text-muted); margin-bottom: 30px;">Escríbenos.</p>
+                <div style="display: flex; gap: 15px; align-items: center; color: var(--text-muted);">
+                    <span style="font-size: 1.5rem;">✉️</span> info@leveluppassport.app
+                </div>
+            </div>
+            <form class="contact-form">
+                <h3 style="margin-bottom: 20px; color: white;">Envíanos un mensaje</h3>
+                <div class="form-group"><label>Nombre</label><input type="text" class="form-control"></div>
+                <div class="form-group"><label>Email</label><input type="email" class="form-control"></div>
+                <div class="form-group"><label>Mensaje</label><textarea class="form-control" rows="4"></textarea></div>
+                <button class="btn btn-store" style="width: 100%; justify-content: center; background: var(--primary); border: none;">Enviar Mensaje</button>
+            </form>
+        </div>
+    </section>
+
+    <section id="cta-final" style="border-top: 1px solid rgba(255,255,255,0.1); padding: 80px 0;">
+        <div class="container">
+            <div style="background: linear-gradient(135deg, #1e1b4b, #312e81); border-radius: 30px; padding: 60px; text-align: center; color: white; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 0 40px rgba(99, 102, 241, 0.2);">
+                <h2 style="color: white; margin-bottom: 20px;">Tu primer sello te espera</h2>
+                <p style="color: #a5b4fc; margin-bottom: 40px;">Crea tu cuenta gratuita en segundos.</p>
+                <form style="max-width: 400px; margin: auto; display: flex; flex-direction: column; gap: 15px;">
+                    <button class="btn btn-primary" style="width: 100%; border-radius: 12px; font-size: 1.1rem;">🚀 Entrar a la App Web</button>
+                    <p style="font-size: 0.8rem; color: #94a3b8;">No se requiere tarjeta de crédito</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container" style="text-align: center;">
+            <p style="color: var(--text-muted); font-size: 0.9rem;">&copy; 2025 Level Up Passport.</p>
+        </div>
+    </footer>
+
+    <script>
+        function switchPricing(plan) {
+            const btnMonthly = document.getElementById('btn-monthly');
+            const btnAnnual = document.getElementById('btn-annual');
+            const priceValue = document.getElementById('price-value');
+            const pricePeriod = document.getElementById('price-period');
+
+            if (plan === 'annual') {
+                // Cambiar a Anual
+                btnAnnual.classList.add('active');
+                btnMonthly.classList.remove('active');
+                
+                // Efecto visual de cambio (opacidad)
+                priceValue.style.opacity = 0;
+                setTimeout(() => {
+                    priceValue.innerHTML = '48€';
+                    pricePeriod.innerHTML = '/año';
+                    priceValue.style.opacity = 1;
+                }, 200);
+                
+            } else {
+                // Cambiar a Mensual
+                btnMonthly.classList.add('active');
+                btnAnnual.classList.remove('active');
+
+                // Efecto visual
+                priceValue.style.opacity = 0;
+                setTimeout(() => {
+                    priceValue.innerHTML = '4.99€';
+                    pricePeriod.innerHTML = '/mes';
+                    priceValue.style.opacity = 1;
+                }, 200);
+            }
+        }
+    </script>
+
+</body>
+</html>
