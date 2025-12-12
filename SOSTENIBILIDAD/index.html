@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pasos que Salvan | Tu camino, nuestro planeta</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .carousel-item { height: 600px; }
+        .carousel-item img { object-fit: cover; height: 100%; width: 100%; filter: brightness(0.6); }
+        .carousel-caption { bottom: 20%; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        .card-hover:hover { transform: translateY(-5px); transition: 0.3s; box-shadow: 0 10px 20px rgba(0,0,0,0.1)!important; }
+        .icon-circle { width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        .ls-2 { letter-spacing: 2px; }
+        .accordion-button:not(.collapsed) { background-color: #e8f5e9; color: #198754; }
+        .benefit-box { background: #fff; border-radius: 15px; padding: 30px; height: 100%; border-bottom: 4px solid transparent; transition: 0.3s; }
+        .benefit-box:hover { border-bottom-color: #198754; transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-white shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-success" href="#">
+                <i class="fas fa-leaf me-2"></i>PASOS QUE SALVAN
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link active" href="#inicio">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#problema">El Problema</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#mitos">Mitos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#beneficios">Beneficios</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <a href="calculadora.html" class="btn btn-success rounded-pill px-4 fw-bold shadow-sm btn-hover-effect">
+                            <i class="fas fa-calculator me-2"></i>Calculadora
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header id="inicio" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#inicio" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#inicio" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#inicio" data-bs-slide-to="2"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Niños caminando al colegio">
+                <div class="carousel-caption d-none d-md-block text-start ps-md-5">
+                    <span class="badge bg-warning text-dark mb-3 fs-6">Campaña de Movilidad Sostenible</span>
+                    <h1 class="display-3 fw-bold">Tu camino, nuestro planeta</h1>
+                    <p class="lead fs-4 w-75">Cada paso que eliges dar de forma sostenible tiene un impacto positivo en el aire que compartimos.</p>
+                    <a href="#propuesta" class="btn btn-lg btn-light text-success fw-bold rounded-pill mt-3 px-5 shadow">
+                        Ver propuesta
+                    </a>
+                </div>
+            </div>
+            
+            <div class="carousel-item">
+                <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Tráfico y coches">
+                <div class="carousel-caption d-none d-md-block text-start ps-md-5">
+                    <h1 class="display-3 fw-bold text-danger">¿Sabes cuánto afecta tu coche?</h1>
+                    <p class="lead fs-4 w-75">Ruido, estrés y emisiones innecesarias en la puerta del colegio. Es hora de cambiar el hábito.</p>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <img src="https://images.unsplash.com/photo-1518509437730-2c9b6a600b0f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Padre e hijo en bici y patinete">
+                <div class="carousel-caption d-none d-md-block text-start ps-md-5">
+                    <h1 class="display-3 fw-bold text-warning">Calcula tu Impacto Real</h1>
+                    <p class="lead fs-4 w-75">Descubre cuánto dinero ahorrarías para tus cosas y cuánto CO2 evitarías cambiando tu rutina hoy mismo.</p>
+                    <a href="calculadora.html" class="btn btn-lg btn-success fw-bold rounded-pill mt-3 px-5 shadow">
+                        <i class="fas fa-calculator me-2"></i>Probar Calculadora
+                    </a>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#inicio" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#inicio" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </header>
+
+    <section class="py-5 bg-white">
+        <div class="container text-center">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h2 class="fw-bold text-success mb-3">Bienvenidos a Pasos que Salvan</h2>
+                    <p class="lead text-muted">
+                        Este espacio reúne toda la información, los materiales creados y las herramientas prácticas que hemos diseñado para animar a toda la comunidad educativa a moverse de manera más responsable.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="problema" class="py-5 bg-light">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <span class="text-danger fw-bold text-uppercase ls-2">La Realidad Actual</span>
+                    <h2 class="fw-bold mt-2 mb-4 display-6">El problema invisible de cada mañana</h2>
+                    <p class="text-muted lead">Cada día, cientos de coches llegan al centro para trayectos de menos de 3km. Este hábito tan normalizado genera:</p>
+                    
+                    <div class="d-flex align-items-center mb-3 p-3 bg-white rounded shadow-sm border-start border-4 border-danger">
+                        <i class="fas fa-smog fa-2x text-danger me-3"></i>
+                        <div>
+                            <h6 class="fw-bold mb-0">Aire Sucio</h6>
+                            <small class="text-muted">Más emisiones de CO₂ y partículas justo donde respiran los alumnos.</small>
+                        </div>
+                    </div>
+                     <div class="d-flex align-items-center mb-3 p-3 bg-white rounded shadow-sm border-start border-4 border-warning">
+                        <i class="fas fa-car-crash fa-2x text-warning me-3"></i>
+                        <div>
+                            <h6 class="fw-bold mb-0">Inseguridad y Estrés</h6>
+                            <small class="text-muted">Atascos, doble fila y tensión en la entrada del colegio.</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                     <div class="position-relative">
+                        <img src="https://images.unsplash.com/photo-1617788138017-80ad40651399?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="img-fluid rounded-4 shadow-lg" alt="Atasco tráfico">
+                        <div class="position-absolute bottom-0 start-0 bg-white p-4 m-4 rounded-3 shadow">
+                            <p class="fw-bold text-success mb-1"><i class="fas fa-lightbulb me-2"></i>El dato clave:</p>
+                            <p class="mb-0 small">Muchas personas no saben cuánto dinero y estrés se ahorrarían simplemente cambiando su forma de venir. Por eso estamos aquí.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="mitos" class="py-5 bg-white">
+        <div class="container">
+             <div class="text-center mb-5">
+                <span class="text-success fw-bold text-uppercase ls-2">Preguntas Frecuentes</span>
+                <h2 class="fw-bold mt-2">Desmontando excusas comunes</h2>
+                <p class="text-muted w-75 mx-auto">¿Crees que no puedes cambiar? Mira las respuestas a las dudas más habituales.</p>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="accordion shadow-sm" id="accordionMitos">
+                        <div class="accordion-item border-0 mb-3 shadow-sm rounded overflow-hidden">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button fw-bold collapsed p-4" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                                    <i class="far fa-clock text-danger me-3 fa-lg"></i> "No tengo tiempo, tardo mucho más andando."
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionMitos">
+                                <div class="accordion-body p-4 text-muted bg-light">
+                                    <strong>¡A menudo es falso!</strong> En distancias cortas (menos de 2-3 km), si sumas el tiempo del atasco en la puerta del colegio, buscar aparcamiento y el estrés, la bici o incluso andar pueden ser igual de rápidos y mucho más predecibles. ¡Haz la prueba un día!
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item border-0 mb-3 shadow-sm rounded overflow-hidden">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button fw-bold collapsed p-4" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                                    <i class="fas fa-shield-alt text-danger me-3 fa-lg"></i> "Es peligroso que los niños vayan solos."
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionMitos">
+                                <div class="accordion-body p-4 text-muted bg-light">
+                                    La seguridad es prioridad. Por eso promovemos los <strong>Pedibuses</strong> (grupos organizados de niños acompañados por adultos turnándose) y trabajamos en identificar Rutas Seguras. Cuantos menos coches haya en la puerta, más seguro será el entorno para todos.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item border-0 mb-3 shadow-sm rounded overflow-hidden">
+                             <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button fw-bold collapsed p-4" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+                                    <i class="fas fa-temperature-high text-danger me-3 fa-lg"></i> "Llegaré sudado o cansado a clase/trabajo."
+                                </button>
+                            </h2>
+                             <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionMitos">
+                                <div class="accordion-body p-4 text-muted bg-light">
+                                    Caminar a ritmo tranquilo o usar la bici en llano no requiere un gran esfuerzo físico. De hecho, ¡activa tu cuerpo y mente! Llegarás más despierto y concentrado que tras 20 minutos de estrés al volante.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="propuesta" class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="text-success fw-bold text-uppercase ls-2">Nuestra Solución</span>
+                <h2 class="fw-bold mt-2">El plan de 4 pasos</h2>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 border-0 shadow-sm card-hover text-center p-4 bg-white rounded-4">
+                        <div class="icon-circle bg-success bg-opacity-10 text-success mb-4 mx-auto">
+                            <i class="fas fa-shoe-prints fa-2x"></i>
+                        </div>
+                        <h5 class="fw-bold">1. Pequeños Hábitos</h5>
+                        <p class="text-muted small mb-0">No pedimos grandes sacrificios. Caminar si vives cerca, usar la bici, compartir coche o probar el bus marcan la diferencia.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 border-0 shadow-sm card-hover text-center p-4 bg-white rounded-4">
+                        <div class="icon-circle bg-info bg-opacity-10 text-info mb-4 mx-auto">
+                            <i class="fas fa-info-circle fa-2x"></i>
+                        </div>
+                        <h5 class="fw-bold">2. Info Clara</h5>
+                        <p class="text-muted small mb-0">Aquí encontrarás por qué es importante, cómo afecta a tu salud y alternativas que quizá no habías considerado.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 shadow card-hover text-center p-4 bg-success text-white rounded-4 position-relative overflow-hidden">
+                         <div class="position-absolute top-0 end-0 m-2"><i class="fas fa-star text-warning"></i></div>
+                        <div class="icon-circle bg-white text-success mb-4 mx-auto shadow">
+                            <i class="fas fa-calculator fa-2x"></i>
+                        </div>
+                        <h5 class="fw-bold">3. Tu Impacto Real</h5>
+                        <p class="small mb-3 opacity-75">Introduce tu ruta y descubre cuánto dinero ahorras y cuánto CO2 evitas. ¡Números claros!</p>
+                        <a href="calculadora.html" class="btn btn-sm btn-light text-success fw-bold rounded-pill px-4 stretched-link">Probar ahora</a>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 border-0 shadow-sm card-hover text-center p-4 bg-white rounded-4">
+                        <div class="icon-circle bg-primary bg-opacity-10 text-primary mb-4 mx-auto">
+                            <i class="fas fa-map-marked-alt fa-2x"></i>
+                        </div>
+                        <h5 class="fw-bold">4. Rutas Seguras</h5>
+                        <p class="text-muted small mb-0">Ideas, mapas y recomendaciones para venir caminando o en bici de forma segura, y paradas cercanas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="beneficios" class="py-5 bg-white">
+        <div class="container">
+             <div class="text-center mb-5">
+                <span class="text-success fw-bold text-uppercase ls-2">Más allá del CO2</span>
+                <h2 class="fw-bold mt-2">Beneficios que no esperabas</h2>
+                <p class="text-muted w-75 mx-auto">Cambiar tu forma de moverte no solo ayuda al planeta, también tiene un impacto directo en ti.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="benefit-box shadow-sm text-center">
+                        <i class="fas fa-brain fa-3x text-success mb-3"></i>
+                        <h4 class="fw-bold mb-3">Mente más despierta</h4>
+                        <p class="text-muted">Llegar andando o en bici activa la circulación y mejora la concentración. Los alumnos que se mueven activamente suelen empezar el día con mejor rendimiento académico.</p>
+                    </div>
+                </div>
+                 <div class="col-lg-4">
+                    <div class="benefit-box shadow-sm text-center">
+                        <i class="fas fa-user-friends fa-3x text-warning mb-3"></i>
+                        <h4 class="fw-bold mb-3">Tiempo para socializar</h4>
+                        <p class="text-muted">El camino al colegio es el momento perfecto para charlar con amigos o familia sin pantallas de por medio. El coche aísla; el camino une.</p>
+                    </div>
+                </div>
+                 <div class="col-lg-4">
+                    <div class="benefit-box shadow-sm text-center">
+                        <i class="fas fa-piggy-bank fa-3x text-info mb-3"></i>
+                        <h4 class="fw-bold mb-3">Ahorro para tus metas</h4>
+                        <p class="text-muted">El dinero que no quemas en gasolina se queda en tu bolsillo. La calculadora te mostrará que esos pequeños trayectos suman mucho dinero a final de curso.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="acciones" class="py-5 bg-success text-white position-relative" style="background-image: url('https://www.transparenttextures.com/patterns/cubes.png');">
+        <div class="container py-4">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <h2 class="fw-bold display-5 mb-4">Propuestas vivas para el centro</h2>
+                    <p class="lead mb-5 opacity-75">Queremos que esta campaña no se quede en un cartel, sino que se convierta en una iniciativa participativa durante todo el curso.</p>
+                    
+                    <div class="d-flex align-items-center mb-4 p-3 rounded-3 bg-white bg-opacity-10">
+                        <i class="fas fa-calendar-check fa-2x me-4 text-warning"></i>
+                        <div>
+                            <h5 class="fw-bold mb-1">Semana Sin Coches</h5>
+                            <p class="mb-0 small opacity-75">Retos diarios para fomentar alternativas.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex align-items-center mb-4 p-3 rounded-3 bg-white bg-opacity-10">
+                        <i class="fas fa-medal fa-2x me-4 text-warning"></i>
+                        <div>
+                            <h5 class="fw-bold mb-1">Sello Sostenible</h5>
+                            <p class="mb-0 small opacity-75">Reconocimiento (pegatinas/diplomas) para quienes vienen andando o en bici.</p>
+                        </div>
+                    </div>
+
+                    <div class="d-flex align-items-center p-3 rounded-3 bg-white bg-opacity-10">
+                        <i class="fas fa-chart-line fa-2x me-4 text-warning"></i>
+                        <div>
+                            <h5 class="fw-bold mb-1">Mural del Progreso</h5>
+                            <p class="mb-0 small opacity-75">Un espacio visible donde registramos los km sostenibles acumulados.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-5 offset-lg-1 text-center">
+    <div class="bg-white text-dark p-4 p-lg-5 rounded-4 shadow-lg transform-rotate-3">
+        <h3 class="fw-bold text-success mb-3">El Cartel de la Campaña</h3>
+        
+        <div class="border border-3 border-success rounded-3 overflow-hidden shadow-sm">
+            <img src="img/Pasos_que_salvan.png" 
+                 alt="Cartel Pasos que Salvan" 
+                 class="img-fluid w-100"
+                 style="display: block;">
+        </div>
+        </div>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-dark text-white text-center position-relative overflow-hidden">
+         <div class="position-absolute top-0 start-0 w-100 h-100 opacity-10" style="background-image: url('https://www.transparenttextures.com/patterns/axiom-pattern.png');"></div>
+         
+        <div class="container position-relative z-1 py-4">
+            <i class="fas fa-globe-europe fa-3x text-success mb-4"></i>
+            <h2 class="fw-bold display-5 mb-4">¿Por qué lo hacemos?</h2>
+            <p class="lead w-75 mx-auto mb-5 opacity-75">Porque creemos que la sostenibilidad no empieza en grandes decisiones políticas, sino en lo que hacemos cada mañana. Nuestra forma de llegar al centro puede parecer algo pequeño… pero cuando cientos de personas eligen una alternativa diferente, el cambio se nota de verdad.</p>
+            <a href="calculadora.html" class="btn btn-success btn-lg rounded-pill px-5 fw-bold shadow-lg btn-hover-effect">
+                Empieza tu cambio hoy
+            </a>
+        </div>
+    </section>
+
+    <footer class="bg-black text-white-50 py-5">
+        <div class="container">
+            <div class="row align-items-center text-center text-lg-start">
+                <div class="col-lg-6 mb-3 mb-lg-0">
+                    <h4 class="text-white fw-bold mb-1"><i class="fas fa-leaf me-2 text-success"></i>Pasos que Salvan</h4>
+                    <p class="mb-0 small">Campaña de movilidad sostenible para la comunidad educativa.</p>
+                </div>
+                <div class="col-lg-6 text-lg-end">
+                    <p class="mb-0 small">Entre todos podemos hacer que nuestro centro sea un lugar más limpio, tranquilo y responsable.</p>
+                    <p class="mb-0 small opacity-50 mt-2">© 2025 EcoRuta Escolar.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

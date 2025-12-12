@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Ahorro | EcoRuta</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        .calc-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            border: none;
+        }
+        .result-box {
+            background-color: #f0fff4; 
+            border: 2px solid #2ecc71;
+            border-radius: 15px;
+            display: none; 
+            padding: 25px;
+            margin-top: 30px;
+        }
+        .stat-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #666;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        .stat-number {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            font-size: 3.5rem;
+            color: #27ae60;
+            line-height: 1.1;
+        }
+        .sub-stat {
+            font-size: 0.9rem;
+            color: #555;
+            padding: 8px 0;
+            border-bottom: 1px dashed #eee;
+        }
+        .highlight-box {
+            background: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+    </style>
+</head>
+<body class="bg-light">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm mb-5">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-success" href="index.html">
+                <i class="fas fa-arrow-left me-2"></i> Volver
+            </a>
+        </div>
+    </nav>
+
+    <div class="container pb-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="text-center mb-4">
+                    <h1 class="fw-bold text-success">Tu Ahorro Anual</h1>
+                    <p class="lead">Calculado para todo el curso escolar (9 meses).</p>
+                </div>
+
+                <div class="card calc-card p-4 p-md-5">
+                    <form id="ecoForm">
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold">
+                                    <i class="fas fa-route text-warning me-2"></i>Distancia SOLO IDA (km)
+                                </label>
+                                <input type="number" class="form-control form-control-lg" id="distancia" placeholder="Ej: 2" required step="0.1">
+                                <div class="form-text">De tu casa a la puerta del centro.</div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold">
+                                    <i class="far fa-calendar-check text-warning me-2"></i>Días a la semana
+                                </label>
+                                <select class="form-select form-select-lg" id="dias">
+                                    <option value="5" selected>5 días (Semana completa)</option>
+                                    <option value="4">4 días</option>
+                                    <option value="3">3 días</option>
+                                    <option value="2">2 días</option>
+                                    <option value="1">1 día</option>
+                                </select>
+                            </div>
+
+                            <div class="col-12">
+                                <label class="form-label fw-bold mb-3">¿Cómo vienes ahora?</label>
+                                <div class="row row-cols-3 g-2 text-center">
+                                    <div class="col">
+                                        <input type="radio" class="btn-check" name="transporte" id="t_coche" value="coche" checked>
+                                        <label class="btn btn-outline-danger w-100 py-3" for="t_coche">
+                                            <i class="fas fa-car fa-lg mb-1 d-block"></i> Coche
+                                        </label>
+                                    </div>
+                                    <div class="col">
+                                        <input type="radio" class="btn-check" name="transporte" id="t_bus" value="bus">
+                                        <label class="btn btn-outline-primary w-100 py-3" for="t_bus">
+                                            <i class="fas fa-bus fa-lg mb-1 d-block"></i> Bus
+                                        </label>
+                                    </div>
+                                    <div class="col">
+                                        <input type="radio" class="btn-check" name="transporte" id="t_eco" value="eco">
+                                        <label class="btn btn-outline-success w-100 py-3" for="t_eco">
+                                            <i class="fas fa-bicycle fa-lg mb-1 d-block"></i> Bici/Pie
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <button type="button" onclick="calcularImpacto()" class="btn btn-success w-100 py-3 fw-bold fs-4 rounded-pill mt-2" style="background-color: #198754; border-color: #198754; color: white;">
+                                    <i class="fas fa-calculator me-2"></i> Ver mi Ahorro
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <div id="resultado" class="result-box text-center">
+                        <h3 class="fw-bold mb-4 text-dark">Impacto Total del Curso</h3>
+                        
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="highlight-box">
+                                    <div class="stat-label" id="label-dinero">Dinero Ahorrado</div>
+                                    <div class="stat-number" id="res-dinero">0 €</div>
+                                    
+                                    <div id="desglose-container" class="mt-3 text-start pt-2 w-100">
+                                        </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="highlight-box">
+                                    <div class="stat-label text-dark" id="label-co2-title">Aire Limpio</div>
+                                    <div class="stat-number text-dark" id="res-co2">0 kg</div>
+                                    <p class="text-muted mt-3 small text-start" id="texto-arboles">
+                                        </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="alert alert-warning mt-4 text-start shadow-sm border-0 d-flex align-items-center">
+                            <i class="fas fa-gift fa-2x text-warning me-3"></i>
+                            <div>
+                                <h6 class="fw-bold mb-1">¿Qué podrías comprarte?</h6>
+                                <p class="mb-0 small" id="mensaje-comparativa">...</p>
+                            </div>
+                        </div>
+                        
+                        <div class="text-muted small mt-3 text-start" style="font-size: 0.75rem;">
+                            <strong>Nota:</strong> Cálculo basado en 36 semanas lectivas (9 meses).<br>
+                            Abono Bus: <strong>10€/mes</strong>. Coche: 10L/100km (1.50€/L).
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function calcularImpacto() {
+            // 1. RECOGIDA DE DATOS
+            let distIda = parseFloat(document.getElementById('distancia').value);
+            let diasSemana = parseInt(document.getElementById('dias').value);
+            let opcionSeleccionada = document.querySelector('input[name="transporte"]:checked');
+            let modo = opcionSeleccionada ? opcionSeleccionada.value : 'coche';
+
+            if (isNaN(distIda) || distIda <= 0) {
+                alert("Por favor, pon la distancia de tu casa al cole (ej: 2.5)");
+                return;
+            }
+
+            // 2. CONFIGURACIÓN DEL CÁLCULO
+            const SEMANAS_CURSO = 36;
+            const MESES_CURSO = 9;
+            const PRECIO_GASOLINA = 1.50; 
+            const CONSUMO_COCHE = 10.0;   // 10L / 100km
+            
+            // PRECIO BUS FIJO (ABONO)
+            const PRECIO_ABONO_MES = 10.0; 
+            
+            // Cálculo KM
+            let kmDiarios = distIda * 2;
+            let kmSemanales = kmDiarios * diasSemana;
+            let kmCurso = kmSemanales * SEMANAS_CURSO;
+
+            // 3. CÁLCULO COSTES COCHE
+            let litrosSemana = (kmSemanales / 100) * CONSUMO_COCHE;
+            let costeSemanaCoche = litrosSemana * PRECIO_GASOLINA;
+            let costeCursoCoche = costeSemanaCoche * SEMANAS_CURSO;
+            
+            // CÁLCULO COSTE BUS (90€ Total)
+            let costeCursoBus = PRECIO_ABONO_MES * MESES_CURSO; 
+
+            // EMISIONES (kg CO2)
+            let co2Total = kmCurso * 0.12; 
+            let arboles = Math.floor(co2Total / 20);
+
+            // 4. LÓGICA DE VISUALIZACIÓN DINERO Y AMBIENTE
+            let dineroMostrar = 0;
+            let titulo = "";
+            let desglose = "";
+            let claseColor = "";
+            let signo = "";
+
+            // Variables para la sección ambiental
+            let tituloCO2 = "";
+            let claseCO2 = "";
+            let textoArboles = "";
+
+            if (modo === 'coche') {
+                // DINERO (GASTO)
+                dineroMostrar = costeCursoCoche;
+                titulo = "Dinero Gastado";
+                claseColor = "text-danger"; 
+                signo = "-";
+                
+                desglose = `
+                    <div class="d-flex justify-content-between sub-stat">
+                        <span>Gasto Semanal:</span> <span class="text-danger fw-bold">${costeSemanaCoche.toFixed(2)}€</span>
+                    </div>
+                    <div class="mt-2 text-danger small">
+                        Calculado con consumo 10L/100km.
+                    </div>`;
+
+                // AMBIENTE (CONTAMINACIÓN)
+                tituloCO2 = "CO2 Contaminado";
+                claseCO2 = "text-danger"; 
+                textoArboles = `<i class="fas fa-smog text-danger"></i> Has emitido esto a la atmósfera. Se necesitarían <strong>${arboles} árboles</strong> para limpiar tu contaminación.`;
+
+            } else if (modo === 'bus') {
+                // DINERO (AHORRO)
+                let diff = costeCursoCoche - costeCursoBus;
+                dineroMostrar = diff > 0 ? diff : 0;
+                
+                titulo = "Ahorro vs Coche";
+                claseColor = diff > 0 ? "text-primary" : "text-secondary";
+                signo = diff > 0 ? "+" : "";
+
+                desglose = `
+                    <div class="d-flex justify-content-between sub-stat">
+                        <span>Coste Coche:</span> <span>${costeCursoCoche.toFixed(0)}€</span>
+                    </div>
+                    <div class="d-flex justify-content-between sub-stat">
+                        <span>Abono Bus:</span> <span class="text-success">-${costeCursoBus.toFixed(0)}€</span>
+                    </div>
+                    <div class="mt-1 text-muted small" style="font-size:0.7rem">
+                        (Abono fijo 90€/curso)
+                    </div>`;
+                
+                // AMBIENTE
+                tituloCO2 = "Aire Limpio";
+                claseCO2 = "text-success"; 
+                textoArboles = `<i class="fas fa-tree text-success"></i> ¡Gracias! Has preservado el <strong>oxígeno</strong> equivalente al trabajo de <strong>${arboles} árboles</strong>.`;
+
+            } else { 
+                // ECO
+                dineroMostrar = costeCursoCoche;
+                titulo = "Ahorro Total";
+                claseColor = "text-success"; 
+                signo = "+";
+
+                desglose = `
+                    <div class="d-flex justify-content-between sub-stat">
+                        <span>Evitado (Semanal):</span> <span>${costeSemanaCoche.toFixed(2)}€</span>
+                    </div>
+                    <div class="d-flex justify-content-between sub-stat">
+                        <span>Tu Gasto:</span> <span class="text-success fw-bold">0€</span>
+                    </div>`;
+
+                // AMBIENTE
+                tituloCO2 = "Aire Limpio";
+                claseCO2 = "text-success"; 
+                textoArboles = `<i class="fas fa-tree text-success"></i> ¡Increíble! Has preservado el <strong>oxígeno</strong> equivalente al trabajo de <strong>${arboles} árboles</strong>.`;
+            }
+
+            // 5. PINTAR RESULTADOS
+            document.getElementById('label-dinero').innerText = titulo;
+            let elDinero = document.getElementById('res-dinero');
+            elDinero.innerText = signo + Math.floor(dineroMostrar) + " €";
+            elDinero.className = "stat-number " + claseColor;
+            document.getElementById('desglose-container').innerHTML = desglose;
+
+            document.getElementById('label-co2-title').innerText = tituloCO2;
+            let elCO2 = document.getElementById('res-co2');
+            elCO2.innerText = Math.floor(co2Total) + " kg";
+            elCO2.className = "stat-number " + claseCO2;
+            document.getElementById('texto-arboles').innerHTML = textoArboles;
+
+            // 6. SISTEMA DE INTERVALOS (50€)
+            let mensaje = "";
+            let valorAbs = Math.abs(dineroMostrar);
+            
+            // Objeto a comprar
+            let objeto = "";
+            
+            if (valorAbs < 50) {
+                objeto = "una tarde de <strong>Cine + Palomitas + Refresco</strong>";
+            } else if (valorAbs < 100) {
+                objeto = "un <strong>Videojuego de Estreno (AAA)</strong>";
+            } else if (valorAbs < 150) {
+                objeto = "unas <strong>Zapatillas de Marca (Nike/Adidas)</strong>";
+            } else if (valorAbs < 200) {
+                objeto = "unos <strong>AirPods</strong> o Auriculares Pro";
+            } else if (valorAbs < 250) {
+                objeto = "una <strong>Escapada de fin de semana</strong> (Hotel + Cena)";
+            } else if (valorAbs < 300) {
+                objeto = "un <strong>Monitor Gaming Curvo</strong> de 27 pulgadas";
+            } else if (valorAbs < 350) {
+                objeto = "una <strong>Nintendo Switch Lite</strong> con un juego";
+            } else if (valorAbs < 400) {
+                objeto = "un <strong>Apple Watch SE</strong> o un móvil gama media";
+            } else if (valorAbs < 450) {
+                objeto = "un <strong>Patinete Eléctrico Xiaomi</strong>";
+            } else if (valorAbs < 500) {
+                objeto = "una <strong>PlayStation 5 Edición Digital</strong>";
+            } else if (valorAbs < 550) {
+                objeto = "una <strong>Xbox Series X</strong> o PS5 con lector";
+            } else if (valorAbs < 600) {
+                objeto = "una <strong>TV 4K de 50 pulgadas</strong>";
+            } else if (valorAbs < 700) {
+                objeto = "un <strong>Viaje a Europa</strong> de una semana con todo";
+            } else {
+                objeto = "un <strong>Portátil nuevo</strong> para estudiar";
+            }
+
+            if (modo === 'coche') {
+                mensaje = `Este dinero equivale a ${objeto}.`;
+            } else {
+                mensaje = `¡Nivel ${Math.floor(valorAbs/50)*50}€! Tienes para ${objeto}.`;
+            }
+
+            document.getElementById('mensaje-comparativa').innerHTML = mensaje;
+            document.getElementById('resultado').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
