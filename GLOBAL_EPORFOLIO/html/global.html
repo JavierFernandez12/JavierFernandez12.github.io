@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Global Project | Root Portfolio</title>
+    <title>Global Portfolio</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 
     <header>
-        <h1><span>GLOBAL</span></h1>
+        <h1>Module: <span>GLOBAL</span></h1>
     </header>
 
     <nav>
@@ -22,15 +22,103 @@
     </nav>
 
     <main class="container">
-        <h2 class="module-title">Global Project Milestones</h2>
-        
-        <!-- PASTE NEW CHALLENGES HERE USING THE TEMPLATE -->
-        <p style="text-align:center; color: #7f8c8d;">No challenges uploaded yet. Copy the template code here.</p>
+        <h2 class="module-title">Project Management & Methodology</h2>
+
+        <article class="challenge-card">
+            <div class="card-header">
+                <h3>Challenge #1: Class Notebook & Git Commit Log</h3>
+                <span class="badge">Git / Methodology / Version Control</span>
+            </div>
+            <div class="card-body">
+                
+                <div class="section-title">1. Challenge Overview</div>
+                <p>
+                    This is a transversal challenge maintained throughout the entire course. It involves keeping a strict and structured <strong>Version Control history</strong> for all ASIR projects. The core requirement is to use specific <strong>semantic tags</strong> in every commit message: 
+                    <code>[CLASE]</code> for work done during school hours and <code>[CASA]</code> for homework. This effectively turns the Git log into a "Class Notebook," documenting not just <em>what</em> changed, but <em>where</em> and <em>when</em> the effort was applied.
+                </p>
+
+                <div class="section-title">2. Key Complex Concepts Learned</div>
+                <ul>
+                    <li><strong>Semantic Commits:</strong> I learned the importance of following a convention (like Conventional Commits). Writing "bugfix" or "update" is useless; writing <code>[CASA] 'Fixed ASCII art alignment in Navarredonda script'</code> provides context and traceability.</li>
+                    <li><strong>Atomic Commits:</strong> To make the log meaningful, I had to learn to commit small, logical units of work frequently, rather than doing one massive "mega-commit" at the end of the week.</li>
+                </ul>
+
+                <div class="section-title">3. Personal Reflection</div>
+                <p>
+                    At the beginning, it was <strong>tedious</strong>. I often forgot the tag and had to use <code>git commit --amend</code> to fix it. However, after a few weeks, it became a habit. Now, looking back at my <code>git log</code> gives me a feeling of <strong>satisfaction and order</strong>, seeing a clear timeline of my progress.
+                </p>
+
+                <div class="section-title">4. Proposed Improvements</div>
+                <p>
+                    To enforce this rule strictly, I would implement a <strong>Git Hook (pre-commit)</strong>. This script would automatically reject any commit message that does not start with <code>[CLASE]</code> or <code>[CASA]</code>, preventing human error and ensuring 100% compliance.
+                </p>
+
+                <div class="section-title">5. Technical Glossary</div>
+                <ul class="tech-list">
+                    <li><strong>Commit:</strong> A snapshot of the project's changes in the repository at a specific point in time.</li>
+                    <li><strong>Staging Area:</strong> The intermediate area where changes are listed and reviewed before being committed.</li>
+                    <li><strong>Git Hook:</strong> Scripts that run automatically before or after Git events (like commit or push).</li>
+                    <li><strong>Amend:</strong> A Git operation used to modify the most recent commit (useful for fixing typos in messages).</li>
+                    <li><strong>Log:</strong> The record of all commits in the repository history.</li>
+                </ul>
+
+                <div class="rating-box">
+                    <strong>6. Assignment Rating:</strong> 10/10 <br>
+                    <strong>Reason:</strong> It builds professional discipline. In a real company, clean commit logs are essential for teamwork.
+                </div>
+            </div>
+        </article>
+
+        <article class="challenge-card">
+            <div class="card-header">
+                <h3>Challenge #2: Portfolio </h3>
+                <span class="badge">Web Development / GitHub Pages / Documentation</span>
+            </div>
+            <div class="card-body">
+                
+                <div class="section-title">1. Challenge Overview</div>
+                <p>
+                    The objective was to design and deploy a comprehensive web portal to showcase all the work done during the 2nd year of ASIR. The site had to cover all modules (Security, Databases, IAW, Python, Global), be written entirely in <strong>English</strong>, and follow a specific structure for each entry (Overview, Concepts, Feelings, Improvements, Glossary, Rating). The final requirement was to publish it globally using <strong>GitHub Pages</strong>.
+                </p>
+
+                <div class="section-title">2. Key Complex Concepts Learned</div>
+                <ul>
+                    <li><strong>Static Site Architecture:</strong> I learned how to structure a multi-page static site without a backend, using relative linking strategies (`../css/style.css`) to maintain a consistent design across different directory levels.</li>
+                    <li><strong>Documentation as Code:</strong> Treating documentation not as a separate chore but as part of the codebase. Learning to synthesize complex technical tasks into clear, professional English summaries.</li>
+                </ul>
+
+                <div class="section-title">3. Personal Reflection</div>
+                <p>
+                    Developing this portfolio made me feel <strong>proud</strong>. Usually, we finish a practice and forget about it. Putting it all together makes me realize how much I have learned this year. Translating technical terms to English was challenging but necessary for the international market.
+                </p>
+
+                <div class="section-title">4. Proposed Improvements</div>
+                <p>
+                    Currently, the site uses static HTML files, which involves copy-pasting the menu on every page. To improve maintainability, I would switch to a <strong>Static Site Generator (SSG)</strong> like Jekyll or Hugo, or use JavaScript to load the header/footer dynamically. I would also add a "Dark Mode" toggle.
+                </p>
+
+                <div class="section-title">5. Technical Glossary</div>
+                <ul class="tech-list">
+                    <li><strong>GitHub Pages:</strong> A static site hosting service that takes HTML, CSS, and JavaScript files straight from a repository.</li>
+                    <li><strong>Frontend:</strong> The part of a website that user interacts with directly (HTML/CSS).</li>
+                    <li><strong>Responsive Design:</strong> An approach to web design that makes web pages render well on a variety of devices and window or screen sizes.</li>
+                    <li><strong>Hyperlink:</strong> A reference to data that the user can follow by clicking or tapping.</li>
+                    <li><strong>Hosting:</strong> The service of providing storage and access for websites.</li>
+                </ul>
+
+                <div class="section-title">6. Assignment Rating & Feedback</div>
+                <div class="rating-box">
+                    <strong>Rating:</strong> 10/10 <br>
+                    <strong>Reason:</strong> This is the most useful assignment for my career. It serves as a real CV to show to future employers.
+                    <strong>Improvement for the statement:</strong> The requirements were clear, but maybe adding a requirement to include a "Contact" form or LinkedIn integration would make it even more professional.
+                </div>
+            </div>
+        </article>
 
     </main>
 
     <footer>
-        <p>&copy; Javier Fernández Rodríguez</p>
+        <p>&copy; 2025 Javier Fernández Rodríguez - ASIR Portfolio</p>
     </footer>
 </body>
 </html>

@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Python | Root Portfolio</title>
+    <title>Python Portfolio</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 
     <header>
-        <h1><span>PYTHON</span></h1>
+        <h1>Module: <span>PYTHON</span></h1>
     </header>
 
     <nav>
@@ -22,15 +22,106 @@
     </nav>
 
     <main class="container">
-        <h2 class="module-title">Scripting Challenges</h2>
-        
-        <!-- PASTE NEW CHALLENGES HERE USING THE TEMPLATE -->
-        <p style="text-align:center; color: #7f8c8d;">No challenges uploaded yet. Copy the template code here.</p>
+        <h2 class="module-title">Python Programming Challenges</h2>
+
+        <article class="challenge-card">
+            <div class="card-header">
+                <h3>Challenge #1: Navarredonda Park Simulator</h3>
+                <span class="badge">Logic / Conditionals / ASCII Art</span>
+            </div>
+            <div class="card-body">
+                
+                <div class="section-title">1. Challenge Overview</div>
+                <p>
+                    I developed a Python program to calculate the entrance fee for an amusement park based on 7 input parameters (Age, Residence, Height, etc.) and <strong>12 prioritized rules</strong>. The program had to evaluate complex conditions (e.g., "School group on Monday OR Friday") to apply discounts or surcharges to the base price (€45). The final output had to display the price using <strong>ASCII Art</strong> digits.
+                </p>
+
+                <div class="section-title">2. Key Complex Concepts Learned</div>
+                <ul>
+                    <li><strong>Boolean Logic & Priority:</strong> I mastered the use of `if-elif-else` chains combined with `and/or` operators. The key challenge was respecting the <strong>priority table</strong>: rule #1 (Free for seniors > 65) had to be checked before rule #12 (Base Tariff), requiring a strictly ordered logic flow.</li>
+                    <li><strong>ASCII Art Output:</strong> Instead of a simple print, I learned to map integer results to multi-line string representations (ASCII numbers) to create a visual ticket.</li>
+                </ul>
+
+                <div class="section-title">3. Personal Reflection</div>
+                <p>
+                    I felt <strong>challenged</strong> by the logic. Debugging why a "Club Member from Madrid" wasn't getting the correct discount because a previous condition triggered first was tricky. Once the logic flowed correctly through all 12 rules, I felt <strong>accomplished</strong>.
+                </p>
+
+                <div class="section-title">4. Proposed Improvements</div>
+                <p>
+                    The code has many nested `if` statements. I would improve it by implementing a <strong>Rule Engine pattern</strong>: creating a list of Rule objects with 'condition' and 'action' attributes, and iterating through them. This would make adding a 13th rule much easier.
+                </p>
+
+                <div class="section-title">5. Technical Glossary</div>
+                <ul class="tech-list">
+                    <li><strong>Boolean Operator:</strong> Symbols (AND, OR, NOT) used to connect and define the relationship between values in a conditional statement.</li>
+                    <li><strong>Float:</strong> A data type used to represent numbers with decimal points (e.g., Height 1.55).</li>
+                    <li><strong>Control Flow:</strong> The order in which individual statements, instructions, or function calls are executed or evaluated.</li>
+                    <li><strong>Hardcoding:</strong> Embedding data directly into the source code (e.g., the €45 base price) instead of using variables or config files.</li>
+                    <li><strong>Input Validation:</strong> The process of ensuring that user input is clean, correct, and useful (e.g., ensuring Age is an integer).</li>
+                </ul>
+
+                <div class="section-title">6. Assignment Rating & Feedback</div>
+                <div class="rating-box">
+                    <strong>Rating:</strong> 9.5/10 <br>
+                    <strong>Reason:</strong> Excellent logic exercise. It forces you to think like a computer processing ordered rules.
+                    <strong>Improvement for the statement:</strong> The priority rules were clear, but the ASCII requirement was a sudden jump in difficulty compared to the logic part.
+                </div>
+            </div>
+        </article>
+
+        <article class="challenge-card">
+            <div class="card-header">
+                <h3>Challenge #2: Creative Graphics with Turtle</h3>
+                <span class="badge">Python / Turtle / Algorithms</span>
+            </div>
+            <div class="card-body">
+                
+                <div class="section-title">1. Challenge Overview</div>
+                <p>
+                    This assignment explored the <strong>Turtle</strong> library to understand coordinate systems and algorithmic drawing. The work consisted of three parts:
+                    1. <strong>The Star:</strong> Drawing the specific "La Salle" star logo using precise angles.
+                    2. <strong>The Name:</strong> Writing my name ("Root") on the canvas without using the <code>write()</code> function, meaning I had to program the path for every letter manually.
+                    3. <strong>Creative Drawing:</strong> A complex freestyle design executing over 30 functions, where I used loops to create a spiral geometric pattern.
+                </p>
+
+                <div class="section-title">2. Key Complex Concepts Learned</div>
+                <ul>
+                    <li><strong>Algorithmic Thinking:</strong> I learned to break down complex shapes (like a letter 'R') into small, reusable steps (forward, turn, pen up, pen down). It changed how I view vector graphics.</li>
+                    <li><strong>Loops for Geometry:</strong> Understanding how `for` loops combined with mathematical increments (e.g., `forward(i)` inside a loop) can create organic, spiral shapes that grow naturally.</li>
+                </ul>
+
+                <div class="section-title">3. Personal Reflection</div>
+                <p>
+                    Writing my name letter by letter was <strong>tedious but rewarding</strong>. Calculating the exact coordinates so the letters wouldn't overlap was a puzzle. However, seeing the final creative spiral animate on the screen was mesmerizing and made me feel <strong>artistic</strong> using code.
+                </p>
+
+                <div class="section-title">4. Proposed Improvements</div>
+                <p>
+                    My code is currently linear. To improve it, I would define a <strong>function for each letter</strong> (e.g., `draw_R()`, `draw_O()`) to make the code modular and reusable for writing other words.
+                </p>
+
+                <div class="section-title">5. Technical Glossary</div>
+                <ul class="tech-list">
+                    <li><strong>Turtle:</strong> A pre-installed Python library that enables users to create pictures and shapes by providing a virtual canvas.</li>
+                    <li><strong>Canvas:</strong> The window or area where the drawing output is displayed.</li>
+                    <li><strong>Loop (Iteration):</strong> A sequence of instructions that is continually repeated until a certain condition is reached.</li>
+                    <li><strong>Coordinates (x,y):</strong> A set of values that show an exact position on the canvas grid.</li>
+                    <li><strong>Refactoring:</strong> The process of restructuring existing computer code without changing its external behavior (e.g., creating functions).</li>
+                </ul>
+
+                <div class="section-title">6. Assignment Rating & Feedback</div>
+                <div class="rating-box">
+                    <strong>Rating:</strong> 8/10 <br>
+                    <strong>Reason:</strong> A fun way to learn syntax, though it has limited real-world application for sysadmins compared to scripting.
+                </div>
+            </div>
+        </article>
 
     </main>
 
     <footer>
-        <p>&copy; Javier Fernández Rodríguez</p>
+        <p>&copy; 2025 Javier Fernández Rodríguez - ASIR Portfolio</p>
     </footer>
 </body>
 </html>

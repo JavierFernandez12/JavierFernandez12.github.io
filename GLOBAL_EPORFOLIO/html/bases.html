@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Databases 2 | Root Portfolio</title>
+    <title>Databases Portfolio</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 
     <header>
-        <h1><span>DATABASES </span></h1>
+        <h1>Module: <span>DATABASES</span></h1>
     </header>
 
     <nav>
@@ -22,15 +22,185 @@
     </nav>
 
     <main class="container">
-        <h2 class="module-title">DB Administration Challenges</h2>
-        
-        <!-- PASTE NEW CHALLENGES HERE USING THE TEMPLATE -->
-        <p style="text-align:center; color: #7f8c8d;">No challenges uploaded yet. Copy the template code here.</p>
+        <h2 class="module-title">DBA & Optimization Challenges</h2>
+
+        <article class="challenge-card">
+            <div class="card-header">
+                <h3>Challenge #1: MySQL Server Tuning & Optimization</h3>
+                <span class="badge">MySQL / Performance / Config</span>
+            </div>
+            <div class="card-body">
+                <div class="section-title">1. Challenge Overview</div>
+                <p>
+                    Acting as a DBA consultant, I analyzed three different company profiles to configure their MySQL servers appropriately. I had to tune <strong>15 critical parameters</strong> in `my.cnf`, such as `innodb_buffer_pool_size`, `max_connections`, and `query_cache_size`, justifying each decision based on the specific workload (OLTP vs OLAP).
+                </p>
+
+                <div class="section-title">2. Key Complex Concepts Learned</div>
+                <ul>
+                    <li><strong>Memory Architecture (Buffer Pool):</strong> I learned that `innodb_buffer_pool_size` is critical for performance. It should be set to 70-80% of RAM on dedicated servers to cache data and indexes, minimizing disk I/O.</li>
+                    <li><strong>ACID vs. Performance:</strong> Understanding `innodb_flush_log_at_trx_commit`. Setting it to 1 ensures durability (ACID), while 0 or 2 improves write speed significantly at the risk of minor data loss during a crash.</li>
+                </ul>
+
+                <div class="section-title">3. Personal Reflection</div>
+                <p>
+                    It was overwhelming at first to deal with so many system variables. However, understanding the hardware impact of each parameter made me feel like a real engineer tuning an engine. Documenting the "Why" for each value was the most valuable part.
+                </p>
+
+                <div class="section-title">4. Proposed Improvements</div>
+                <p>
+                    I would use benchmarking tools like <strong>Sysbench</strong> to measure the actual impact of my changes instead of relying only on theoretical calculations.
+                </p>
+
+                <div class="section-title">5. Technical Glossary</div>
+                <ul class="tech-list">
+                    <li><strong>Buffer Pool:</strong> The memory area where InnoDB caches table and index data.</li>
+                    <li><strong>Slow Query Log:</strong> A log of queries that take longer than `long_query_time` to execute.</li>
+                    <li><strong>ACID:</strong> Atomicity, Consistency, Isolation, Durability.</li>
+                    <li><strong>Throughput:</strong> The number of transactions a system can handle per second.</li>
+                    <li><strong>my.cnf:</strong> The main configuration file for MySQL.</li>
+                </ul>
+
+                <div class="rating-box">
+                    <strong>6. Assignment Rating:</strong> 9/10 <br>
+                    <strong>Reason:</strong> Very realistic scenario. It forces you to read the documentation thoroughly.
+                </div>
+            </div>
+        </article>
+
+
+        <article class="challenge-card">
+            <div class="card-header">
+                <h3>Challenge #2: Advanced User & Privilege Management</h3>
+                <span class="badge">MySQL / Security / Grants</span>
+            </div>
+            <div class="card-body">
+                <div class="section-title">1. Challenge Overview</div>
+                <p>
+                    In this practice, I managed the security of a "Social Network" database (`usuario`, `grupo`, `comentario`). I created a hierarchical user structure involving specific users like 'Bego', 'Mati', 'Mifli', and 'Crispula' with granular permissions. The tasks included using `GRANT` and `REVOKE` for specific tables, managing access from different domains (`localhost` vs `lasalleinstitucion.es`), and handling privilege flushing.
+                </p>
+
+                <div class="section-title">2. Key Complex Concepts Learned</div>
+                <ul>
+                    <li><strong>Granular Privileges (`GRANT OPTION`):</strong> I learned how to create a "super-user" (Crispula) who not only has access but can also grant permissions to others using `WITH GRANT OPTION`.</li>
+                    <li><strong>Privilege Flushing:</strong> Understanding when `FLUSH PRIVILEGES` is necessary (mainly when modifying the grant tables directly like `UPDATE user...`) versus when the server handles it automatically (using `GRANT`/`REVOKE` commands).</li>
+                </ul>
+
+                <div class="section-title">3. Personal Reflection</div>
+                <p>
+                    I felt <strong>powerful</strong> controlling exactly who could touch what data. It was tricky to remember that creating a user and granting permissions can be done in one step or two depending on the MySQL version. The hierarchy of permissions (Global > Database > Table > Column) is now clear to me.
+                </p>
+
+                <div class="section-title">4. Proposed Improvements</div>
+                <p>
+                    Instead of manual commands, I would create a stored procedure or a script to automate the onboarding of new employees (users) with predefined roles to avoid human error.
+                </p>
+
+                <div class="section-title">5. Technical Glossary</div>
+                <ul class="tech-list">
+                    <li><strong>GRANT:</strong> The SQL command used to provide access or privileges on the database objects to the users.</li>
+                    <li><strong>REVOKE:</strong> The command used to remove user access rights or privileges.</li>
+                    <li><strong>FLUSH PRIVILEGES:</strong> A command that reloads the grant tables in the MySQL memory.</li>
+                    <li><strong>DCL (Data Control Language):</strong> The subset of SQL commands used to control access to data (GRANT, REVOKE).</li>
+                    <li><strong>Wildcard (%):</strong> A character used to substitute one or more characters in a string, used here for host definitions (e.g., `%.lasalleinstitucion.es`).</li>
+                </ul>
+
+                <div class="rating-box">
+                    <strong>6. Assignment Rating:</strong> 8.5/10 <br>
+                    <strong>Reason:</strong> Essential practice for understanding database security layers.
+                </div>
+            </div>
+        </article>
+
+        <article class="challenge-card">
+            <div class="card-header">
+                <h3>Challenge #3: SQLite Mobile DB Optimization</h3>
+                <span class="badge">SQLite / Mobile / Optimization</span>
+            </div>
+            <div class="card-body">
+                <div class="section-title">1. Challenge Overview</div>
+                <p>
+                    I acted as a DBA for a mobile fruit management app ("Frutitas Bonitas"). The goal was to design a lightweight database for Mandarins, Peaches, and Persimmons (Caquis). The challenge involved creating tables with constraints (`NOT NULL`, `CHECK`), optimizing performance using `PRAGMA` statements (like `journal_mode=WAL`), and automating backups with a script.
+                </p>
+
+                <div class="section-title">2. Key Complex Concepts Learned</div>
+                <ul>
+                    <li><strong>PRAGMA Configuration:</strong> I learned how SQLite uses `PRAGMA` commands to modify the operation of the SQLite library. Specifically, enabling <strong>WAL (Write-Ahead Logging)</strong> mode significantly improved concurrency.</li>
+                    <li><strong>Serverless Architecture:</strong> Understanding the difference between a client-server DB (MySQL) and a serverless, file-based DB (SQLite) where the engine is embedded in the app.</li>
+                </ul>
+
+                <div class="section-title">3. Personal Reflection</div>
+                <p>
+                    Working with SQLite felt <strong>fast and agile</strong>. It was refreshing not to deal with users and permissions. However, analyzing the logs to optimize query performance was challenging but <strong>rewarding</strong> when I understood how indexing affected the speed.
+                </p>
+
+                <div class="section-title">4. Proposed Improvements</div>
+                <p>
+                    I would encrypt the database file using <strong>SQLCipher</strong>, especially since it's designed for mobile devices where physical security is a concern.
+                </p>
+
+                <div class="section-title">5. Technical Glossary</div>
+                <ul class="tech-list">
+                    <li><strong>SQLite:</strong> A C-language library that implements a small, fast, self-contained, high-reliability, full-featured, SQL database engine.</li>
+                    <li><strong>PRAGMA:</strong> Special commands to query or modify the internal state of the SQLite library.</li>
+                    <li><strong>WAL (Write-Ahead Log):</strong> A journaling mode that allows simultaneous readers and writers, improving concurrency.</li>
+                    <li><strong>Vacuum:</strong> A command used to rebuild the database file, repacking it into a minimal amount of disk space.</li>
+                    <li><strong>Cron Job:</strong> A time-based job scheduler in Unix-like operating systems, used here for backups.</li>
+                </ul>
+
+                <div class="rating-box">
+                    <strong>6. Assignment Rating:</strong> 8/10 <br>
+                    <strong>Reason:</strong> Very practical for mobile development context.
+                </div>
+            </div>
+        </article>
+
+        <article class="challenge-card">
+            <div class="card-header">
+                <h3>Challenge #4: PostgreSQL Advanced Features</h3>
+                <span class="badge">PostgreSQL / JSON / Arrays</span>
+            </div>
+            <div class="card-body">
+                <div class="section-title">1. Challenge Overview</div>
+                <p>
+                    This project focused on the advanced capabilities of PostgreSQL for a Horse Riding Club DB ("Equitación Suave"). Beyond standard CRUD operations and user roles (`admin`, `read_only`), I implemented NoSQL-like features within SQL. I used <strong>JSON columns</strong> to store competition details, <strong>ARRAY types</strong> for certifications, created <strong>Materialized Views</strong> for performance, and used <strong>Table Inheritance</strong> for equipment management.
+                </p>
+
+                <div class="section-title">2. Key Complex Concepts Learned</div>
+                <ul>
+                    <li><strong>Hybrid SQL/NoSQL (JSONB):</strong> I learned to store semi-structured data (JSON) directly in the table (`detalles_competencias`) and query it efficiently. This avoids complex joins for flexible data attributes.</li>
+                    <li><strong>Materialized Views:</strong> Understanding that unlike standard views, materialized views store the result physically on disk. They are much faster for reading heavy aggregations but require manual refreshing (`REFRESH MATERIALIZED VIEW`).</li>
+                </ul>
+
+                <div class="section-title">3. Personal Reflection</div>
+                <p>
+                    Using <strong>pgAdmin</strong> made the administration visual and intuitive. I was <strong>surprised</strong> by the power of Table Inheritance, which allows creating a hierarchy of tables (Base Equipment -> Jumping Equipment) similar to OOP classes. It felt very modern and flexible.
+                </p>
+
+                <div class="section-title">4. Proposed Improvements</div>
+                <p>
+                    I would implement <strong>Triggers</strong> to automatically refresh the Materialized View whenever the underlying data changes, so the reports are always up-to-date without manual intervention.
+                </p>
+
+                <div class="section-title">5. Technical Glossary</div>
+                <ul class="tech-list">
+                    <li><strong>PostgreSQL:</strong> An advanced, enterprise-class, and open-source object-relational database system.</li>
+                    <li><strong>JSONB:</strong> A binary format for storing JSON data that supports indexing and efficient parsing.</li>
+                    <li><strong>Materialized View:</strong> A database object that contains the results of a query and stores them physically (like a cache).</li>
+                    <li><strong>Table Inheritance:</strong> A feature that allows a table to inherit columns and constraints from a parent table.</li>
+                    <li><strong>pgAdmin:</strong> The most popular open source administration and development platform for PostgreSQL.</li>
+                </ul>
+
+                <div class="rating-box">
+                    <strong>6. Assignment Rating:</strong> 9.5/10 <br>
+                    <strong>Reason:</strong> My favorite module practice. It showed me why PostgreSQL is superior for complex data structures.
+                </div>
+            </div>
+        </article>
 
     </main>
 
     <footer>
-        <p>&copy; Javier Fernández Rodríguez</p>
+        <p>&copy; 2025 Javier Fernández Rodríguez - ASIR Portfolio</p>
     </footer>
 </body>
 </html>

@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IAW | Root Portfolio</title>
+    <title>IAW Portfolio</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 
     <header>
-        <h1><span>IAW</span></h1>
+        <h1>Module: <span>IAW</span></h1>
     </header>
 
     <nav>
@@ -23,14 +23,59 @@
 
     <main class="container">
         <h2 class="module-title">Web Deployment Challenges</h2>
-        
-        <!-- PASTE NEW CHALLENGES HERE USING THE TEMPLATE -->
-        <p style="text-align:center; color: #7f8c8d;">No challenges uploaded yet. Copy the template code here.</p>
+
+        <article class="challenge-card">
+            <div class="card-header">
+                <h3>Challenge #1: PHP Dice Game</h3>
+                <span class="badge">PHP / Logic / Forms</span>
+            </div>
+            <div class="card-body">
+                
+                <div class="section-title">1. Challenge Overview</div>
+                <p>
+                    Following the video guidelines, I developed a dynamic web application using <strong>PHP</strong> that simulates a dice game against a virtual opponent. The project consists of two pages:
+                    1. <strong>Input Page (Form):</strong> The user selects the number of dice to roll, the number of faces per die, and sets the opponent's target score.
+                    2. <strong>Results Page (Logic):</strong> The server processes the input, generates random rolls, displays the corresponding dice images, calculates the total points, and determines if the player won or lost against the set score.
+                </p>
+
+                <div class="section-title">2. Key Complex Concepts Learned</div>
+                <ul>
+                    <li><strong>Server-Side Form Handling (<code>$_POST</code>):</strong> I learned how to capture user input securely from an HTML form using the PHP superglobal <code>$_POST</code> and validate that data before processing.</li>
+                    <li><strong>Dynamic Asset Rendering:</strong> Using loops (<code>for</code>) combined with random number generation (<code>rand()</code>) to dynamically construct the HTML <code>&lt;img&gt;</code> tags, ensuring the correct die image matches the random number generated.</li>
+                </ul>
+
+                <div class="section-title">3. Personal Reflection</div>
+                <p>
+                    It was very satisfying to see the logic come to life. At first, I had some trouble with the <strong>image paths</strong>, ensuring that if the random number was '3', the script loaded 'dice_3.png'. Once fixed, seeing the "You Win!" message appear based on my own code logic felt great.
+                </p>
+
+                <div class="section-title">4. Proposed Improvements</div>
+                <p>
+                    Currently, the game restarts from zero. To improve it, I would use <strong>PHP Sessions</strong> to remember the user's settings (number of dice/faces) so they don't have to re-enter them every time they want to play again. I would also add CSS animations to make the dice "roll" on the screen.
+                </p>
+
+                <div class="section-title">5. Technical Glossary</div>
+                <ul class="tech-list">
+                    <li><strong>PHP (Hypertext Preprocessor):</strong> A server-side scripting language designed for web development.</li>
+                    <li><strong>$_POST:</strong> A PHP super global variable used to collect form data sent with the HTTP POST method.</li>
+                    <li><strong>Control Structures:</strong> Blocks of code (if/else, loops) that determine the flow of execution based on conditions (e.g., if total > opponent).</li>
+                    <li><strong>Rand():</strong> A built-in PHP function used to generate a random integer.</li>
+                    <li><strong>Backend Logic:</strong> The part of the application that runs on the server (calculations, database interactions) rather than the browser.</li>
+                </ul>
+
+                <div class="section-title">6. Assignment Rating & Feedback</div>
+                <div class="rating-box">
+                    <strong>Rating:</strong> 8.5/10 <br>
+                    <strong>Reason:</strong> A classic but effective exercise to understand the request-response cycle in web apps.
+                    <strong>Improvement for the statement:</strong> The video was clear, but providing the image assets (dice icons) beforehand would save time searching for them online.
+                </div>
+            </div>
+        </article>
 
     </main>
 
     <footer>
-        <p>&copy;Javier Fernández Rodríguez</p>
+        <p>&copy; 2025 Javier Fernández Rodríguez - ASIR Portfolio</p>
     </footer>
 </body>
 </html>

@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Security | Root Portfolio</title>
+    <title>Security Portfolio</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 
     <header>
-        <h1><span>SECURITY</span></h1>
-
+        <h1>Module: <span>SECURITY</span></h1>
     </header>
 
     <nav>
@@ -23,56 +22,195 @@
     </nav>
 
     <main class="container">
-        <h2 class="module-title">Security Challenges</h2>
+        <h2 class="module-title">Security Practices & Challenges</h2>
+        
+        <article class="challenge-card">
+            <div class="card-header">
+                <h3>Challenge #1: Kali Purple Attack Simulations</h3>
+                <span class="badge">Hydra / Pydictor / DVWA</span>
+            </div>
+            <div class="card-body">
+                <div class="section-title">1. Challenge Overview</div>
+                <p>
+                    This comprehensive challenge focused on simulating brute-force attacks using Kali Purple. The work was divided into three stages:
+                    (1) <strong>Preparation:</strong> Creating custom wordlists using <strong>Pydictor</strong> and merging them with <strong>Dymerge</strong>.
+                    (2) <strong>Infrastructure Attack:</strong> Setting up an SSH server and using <strong>Hydra</strong> to crack a user's password.
+                    (3) <strong>Web Attack:</strong> Deploying <strong>DVWA</strong> and using Hydra to brute-force a login web form via HTTP POST requests.
+                </p>
+
+                <div class="section-title">2. Key Complex Concepts Learned</div>
+                <ul>
+                    <li><strong>Protocol-Specific Brute Force:</strong> I learned the significant difference between attacking a standard network protocol like SSH versus a stateless web protocol like HTTP, where you must identify failure strings.</li>
+                    <li><strong>Dictionary Engineering:</strong> Understanding that effective hacking isn't just about the tool, but about the quality of the "ammunition" (wordlists).</li>
+                </ul>
+
+                <div class="section-title">3. Personal Reflection</div>
+                <p>
+                    The experience was a roller coaster. The SSH part was <strong>exciting</strong>—seeing the password crack successfully gave me a rush. However, the HTTP part caused some <strong>frustration</strong> because getting the correct syntax for Hydra's <code>http-post-form</code> was tricky and required trial and error.
+                </p>
+
+                <div class="section-title">4. Proposed Improvements</div>
+                <p>
+                    To improve the workflow, I would write a <strong>Bash script</strong> to automate the dictionary generation. For the web attack, I would use <strong>Burp Suite</strong> to capture the request headers instead of browser tools for better accuracy.
+                </p>
+
+                <div class="section-title">5. Technical Glossary</div>
+                <ul class="tech-list">
+                    <li><strong>Brute-force:</strong> A cryptanalytic attack that consists of trying every possible combination of characters.</li>
+                    <li><strong>Hydra:</strong> A fast and flexible network login cracker.</li>
+                    <li><strong>False Positive:</strong> A result which wrongly indicates that a particular condition is present.</li>
+                    <li><strong>HTTP POST:</strong> The HTTP method used to send data to a server (login forms).</li>
+                    <li><strong>Wordlist:</strong> A collection of words or strings used for dictionary attacks.</li>
+                </ul>
+
+                <div class="rating-box">
+                    <strong>6. Assignment Rating:</strong> 9/10 <br>
+                    <strong>Feedback:</strong> Excellent practice covering the full attack cycle.
+                </div>
+            </div>
+        </article>
 
         <article class="challenge-card">
             <div class="card-header">
-                <h3>Challenge #1: attack_simulation</h3>
-                <span class="badge">SAD / Security</span>
+                <h3>Challenge #2: Advanced Permissions & Forensics</h3>
+                <span class="badge">Linux / ACLs / Bash</span>
             </div>
             <div class="card-body">
                 
                 <div class="section-title">1. Challenge Overview</div>
                 <p>
-                    In this task, I worked with dictionary generation tools to prepare for brute-force attacks. I used Pydictor to create two specific wordlists: one with numeric patterns and another with uppercase letters. Then, I used Dymerge to fuse these two lists into a single master dictionary named diccionarion.
+                    This practice focused on hardening the filesystem and mastering command-line auditing.
+                    <strong>Phase 1:</strong> I managed a multi-user environment (`monon1`, `tronko2`, `birmingan3`) implementing advanced permissions like <strong>SGID</strong> for collaborative folders, <strong>Sticky Bit</strong> for secure temporary directories, and <strong>ACLs</strong> for granular access.
+                    <strong>Phase 2:</strong> I performed forensic-style searches using <code>grep</code>, <code>find</code>, and <code>locate</code> to identify critical errors in logs and hidden configuration files within a complex directory structure.
                 </p>
 
                 <div class="section-title">2. Key Complex Concepts Learned</div>
                 <ul>
-                    <li><strong>Dictionary Merging:</strong> I learned how to combine multiple small, specific wordlists into a larger, more effective payload using tools like Dymerge, rather than relying on static lists.</li>
-                    <li><strong>Pattern-based Generation:</strong> I understood how to use Pydictor to generate passwords based on specific rules (length, character type) instead of random guessing.</li>
+                    <li><strong>Special Permission Bits (SGID & Sticky):</strong> Understanding how SGID forces new files to inherit the parent directory's group (essential for team collaboration) and how Sticky Bit prevents users from deleting each other's files in shared folders like <code>/tmp</code>.</li>
+                    <li><strong>Access Control Lists (ACLs):</strong> I learned that standard `rwx` permissions are limited. ACLs allow granting specific permissions to a single user without changing the group ownership.</li>
                 </ul>
 
                 <div class="section-title">3. Personal Reflection</div>
                 <p>
-                    At first, I felt a bit confused by the command-line flags of Pydictor. However, seeing Dymerge successfully combine the files gave me a sense of satisfaction. It felt like preparing the "ammunition" before the battle.
+                    Calculating the <strong>umask</strong> (subtracting from 777) was confusing at first. However, verifying that user `birmingan3` could not delete `monon1`'s file due to the Sticky Bit gave me a strong sense of <strong>control and security</strong>. The search exercises with regex made me feel very efficient.
                 </p>
 
                 <div class="section-title">4. Proposed Improvements</div>
                 <p>
-                    The process was manual. To improve it, I would write a small Bash script that automatically installs the tools if they are missing and generates the dictionary with a single command to save time.
+                    I would create a <strong>setup script</strong> that automatically creates the users and directory structure to reset the environment quickly for testing. Also, I would practice using <code>chattr</code> (immutable bit) for even higher security on critical logs.
                 </p>
 
                 <div class="section-title">5. Technical Glossary</div>
                 <ul class="tech-list">
-                    <li><strong>Brute-force:</strong> A trial-and-error method used to decode encrypted data or passwords.</li>
-                    <li><strong>Wordlist:</strong> A text file containing a list of potential passwords used for attacks.</li>
-                    <li><strong>Base64:</strong> A binary-to-text encoding scheme that represents binary data in an ASCII string format.</li>
-                    <li><strong>Merge:</strong> The operation of combining two or more files or datasets into one.</li>
-                    <li><strong>Pydictor:</strong>A powerful dictionary builder tool written in Python.</li>
+                    <li><strong>SGID (Set Group ID):</strong> A special permission bit that forces files created inside a directory to inherit the directory's group ownership.</li>
+                    <li><strong>Sticky Bit:</strong> A permission bit set on directories that restricts file deletion to the file's owner only (used in `/tmp`).</li>
+                    <li><strong>ACL (Access Control List):</strong> A list of permissions attached to an object giving specific access rights to users or groups.</li>
+                    <li><strong>Umask:</strong> A command that determines the default file permissions for newly created files.</li>
+                    <li><strong>Grep:</strong> A command-line utility for searching plain-text data sets for lines that match a regular expression.</li>
                 </ul>
 
                 <div class="rating-box">
                     <strong>6. Assignment Rating:</strong> 8/10 <br>
-                    <strong>Feedback:</strong> Good introduction to the tools, but I would have liked to try generating a dictionary based on a specific person's social media data (profiling).
+                    <strong>Reason:</strong> Very useful for real-world sysadmin tasks.
                 </div>
             </div>
         </article>
-   
+
+        <article class="challenge-card">
+            <div class="card-header">
+                <h3>Challenge #3: Malware Research Presentation</h3>
+                <span class="badge">Malware / Teamwork / Git</span>
+            </div>
+            <div class="card-body">
+                <div class="section-title">1. Challenge Overview</div>
+                <p>
+                    As part of "Team 1", we researched and delivered a 10-minute oral presentation covering <strong>Viruses, Macro Malware, Rootkits, and Drive-by downloads</strong>.
+                    The strict requirements included speaking without notes, covering attack techniques, consequences, and analyzing a real-world case study.
+                    Additionally, we practiced version control by committing our progress after every class (<code>[clase]</code>) and home session (<code>[casa]</code>).
+                </p>
+
+                <div class="section-title">2. Key Complex Concepts Learned</div>
+                <ul>
+                    <li><strong>Rootkit Persistence mechanisms:</strong> Understanding how rootkits operate at the kernel level (Ring 0) to hook system calls and hide their presence from antivirus software.</li>
+                    <li><strong>Drive-by Download Architecture:</strong> Learning how attackers inject malicious scripts into legitimate websites to exploit browser vulnerabilities and install malware silently.</li>
+                </ul>
+
+                <div class="section-title">3. Personal Reflection</div>
+                <p>
+                    Speaking in public without notes was <strong>nerve-wracking</strong> at first, but preparing the script thoroughly gave me confidence. Investigating real cases of "Drive-by downloads" made me feel much more <strong>cautious</strong> about web browsing.
+                </p>
+
+                <div class="section-title">4. Proposed Improvements</div>
+                <p>
+                    Our slides were text-heavy. If I could do it again, I would use more diagrams to explain the Rootkit architecture and maybe include a safe, recorded demo of a Macro execution.
+                </p>
+
+                <div class="section-title">5. Technical Glossary</div>
+                <ul class="tech-list">
+                    <li><strong>Rootkit:</strong> A set of software tools that enable an unauthorized user to gain control of a computer system without being detected.</li>
+                    <li><strong>Macro Virus:</strong> A virus written in a macro language (like VBA) that is embedded in documents and runs when the document is opened.</li>
+                    <li><strong>Drive-by Download:</strong> The unintentional download of malicious code to a computer or mobile device that leaves a user open to a cyberattack.</li>
+                    <li><strong>Kernel Hooking:</strong> A technique used by rootkits to intercept function calls between software and the operating system.</li>
+                    <li><strong>Zero-day Exploit:</strong> A cyberattack that occurs on the same day a weakness is discovered in software.</li>
+                </ul>
+
+                <div class="rating-box">
+                    <strong>6. Assignment Rating:</strong> 8.5/10 <br>
+                    <strong>Reason:</strong> Great practice for soft skills and Git discipline.
+                </div>
+            </div>
+        </article>
+
+        <article class="challenge-card">
+            <div class="card-header">
+                <h3>Challenge #4: Web App Security (SQLi & XSS)</h3>
+                <span class="badge">Python Flask / PHP / OWASP</span>
+            </div>
+            <div class="card-body">
+                <div class="section-title">1. Challenge Overview</div>
+                <p>
+                    This lab focused on exploiting and patching two of the most critical web vulnerabilities: <strong>SQL Injection (SQLi)</strong> and <strong>Cross-Site Scripting (XSS)</strong>.
+                    I developed vulnerable web apps using <strong>Python Flask</strong> and <strong>PHP</strong>.
+                    First, I bypassed a login screen using SQL payloads like <code>' OR 1=1 --</code>. Then, I injected JavaScript alerts using Reflected and Persistent XSS. Finally, I secured the code using <strong>Prepared Statements</strong> and <strong>Input Sanitization</strong> (<code>htmlspecialchars</code>).
+                </p>
+
+                <div class="section-title">2. Key Complex Concepts Learned</div>
+                <ul>
+                    <li><strong>SQL Injection (String Concatenation vs. Prepared Statements):</strong> I understood that concatenating user input directly into SQL queries allows attackers to manipulate the logic of the database. The fix is treating input as parameters, not executable code.</li>
+                    <li><strong>XSS Types (Reflected vs. Persistent):</strong> Reflected XSS happens immediately via URL parameters (e.g., search bars), while Persistent XSS stores the malicious script in the database, executing it every time a victim loads the page (e.g., comments section).</li>
+                </ul>
+
+                <div class="section-title">3. Personal Reflection</div>
+                <p>
+                    It was shockingly <strong>easy</strong> to bypass the login with a simple string. It made me realize how fragile legacy code can be. Fixing the vulnerabilities gave me a sense of <strong>responsibility</strong>; writing secure code is not optional, it's mandatory.
+                </p>
+
+                <div class="section-title">4. Proposed Improvements</div>
+                <p>
+                    I manually tested the payloads. To improve, I would use automated tools like <strong>SQLMap</strong> to see how deep the exploitation can go, and maybe implement a <strong>WAF (Web Application Firewall)</strong> (like ModSecurity) to see how it filters these attacks.
+                </p>
+
+                <div class="section-title">5. Technical Glossary</div>
+                <ul class="tech-list">
+                    <li><strong>SQL Injection (SQLi):</strong> A code injection technique used to attack data-driven applications by inserting malicious SQL statements into entry fields.</li>
+                    <li><strong>Cross-Site Scripting (XSS):</strong> A vulnerability that enables attackers to inject client-side scripts into web pages viewed by other users.</li>
+                    <li><strong>Sanitization:</strong> The process of cleaning input data to prevent it from being interpreted as code (e.g., converting <code>&lt;</code> to <code>&amp;lt;</code>).</li>
+                    <li><strong>Prepared Statement:</strong> A feature used to execute the same (or similar) SQL statements repeatedly with high efficiency and security against SQL injection.</li>
+                    <li><strong>Payload:</strong> The part of the malware or exploit code that performs the malicious action.</li>
+                </ul>
+
+                <div class="rating-box">
+                    <strong>6. Assignment Rating:</strong> 9.5/10 <br>
+                    <strong>Reason:</strong> Very practical. Seeing the code break and then fixing it is the best way to learn secure coding.
+                    <strong>Improvement for the statement:</strong> It would be interesting to include a "Blind SQL Injection" challenge, where you don't see errors but have to guess the database structure.
+                </div>
+            </div>
+        </article>
+
     </main>
 
     <footer>
-        <p>&copy; Javier Fernández Rodríguez</p>
+        <p>&copy; 2025 Javier Fernández Rodríguez - ASIR Portfolio</p>
     </footer>
 </body>
 </html>
