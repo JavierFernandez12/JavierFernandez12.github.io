@@ -72,6 +72,94 @@
             </div>
         </article>
 
+        <article class="challenge-card">
+            <div class="card-header">
+                <h3>Challenge #2: PHP & MySQL Games Management System</h3>
+                <span class="badge">PHP / MySQL / CRUD</span>
+            </div>
+            <div class="card-body">
+                
+                <div class="section-title">1. Challenge Overview</div>
+                <p>
+                    I created a relational database named `BD_GAMES` containing three main tables: `GAMES`, `PLAYERS`, and `PARTIDAS` (Matches). The goal was to build a PHP web application with a dashboard (`index.php`) providing direct links to manage these tables and displaying a control summary (e.g., total number of games, players, matches, and advanced statistics like players participating in 2, 3, or more than 3 matches). Each table management section required dedicated pages to view the data in HTML tables, insert new records, modify specific fields by ID, and delete records. The final code was submitted via Git.
+                </p>
+
+                <div class="section-title">2. Key Complex Concepts Learned</div>
+                <ul>
+                    <li><strong>Relational Data Integrity:</strong> I successfully mapped Foreign Keys, ensuring that `ID_GAME` in the matches table referenced the `GAMES` table, while `ID_PLAYER1` and `ID_PLAYER2` correctly linked to the `PLAYERS` table.</li>
+                    <li><strong>CRUD Architecture:</strong> Structuring a PHP application to handle Create, Read, Update, and Delete operations dynamically across multiple interconnected tables.</li>
+                </ul>
+
+                <div class="section-title">3. Personal Reflection</div>
+                <p>
+                    Building the summary control board with advanced SQL queries was challenging. Recording the final demonstration video highlighting all functionalities in under 1:01 minutes forced me to ensure the UI flow was smooth and error-free.
+                </p>
+
+                <div class="section-title">4. Proposed Improvements</div>
+                <p>
+                    I would upgrade the application by using PDO (PHP Data Objects) and prepared statements for all database interactions to ensure robust protection against SQL injection attacks during the insert and modify processes.
+                </p>
+
+                <div class="section-title">5. Technical Glossary</div>
+                <ul class="tech-list">
+                    <li><strong>CRUD:</strong> Create, Read, Update, Delete - the four basic operations of persistent storage.</li>
+                    <li><strong>Foreign Key (FK):</strong> A column that creates a link between two tables, ensuring referential integrity.</li>
+                    <li><strong>Git:</strong> A version control system used to track changes in the source code, which was a requirement for the final delivery.</li>
+                </ul>
+
+                <div class="section-title">6. Assignment Rating & Feedback</div>
+                <div class="rating-box">
+                    <strong>Rating:</strong> 8/10 <br>
+                    <strong>Reason:</strong> A highly practical exercise for mastering database interactions from a web frontend.
+                </div>
+            </div>
+        </article>
+
+        
+        <article class="challenge-card">
+            <div class="card-header">
+                <h3>Challenge #3: Advanced Redis Caching with PHP</h3>
+                <span class="badge">PHP / Redis / Performance</span>
+            </div>
+            <div class="card-body">
+                
+                <div class="section-title">1. Challenge Overview</div>
+                <p>
+                    For the "App Aceitunas" project, I built a PHP web app to manage Harvesters (`Vareadores`) and Olive Trees (`Olivos`) using a Many-to-Many relational structure, allowing users to view, add, modify, and delete records. The key technical challenge was implementing Redis as an intermediate caching layer to optimize MySQL queries. I configured specific expiration times (TTL) for the cache: 10 seconds for numeric keys and 60 seconds for text-based keys. The system architecture follows a strict flow: check Redis first; if the key is missing, fetch the data from MySQL, return it, and store it in Redis for future requests.
+                </p>
+
+                <div class="section-title">2. Key Complex Concepts Learned</div>
+                <ul>
+                    <li><strong>Server Administration & Compilation:</strong> I learned how to install the `php-redis` extension from source via Git, which involved using `phpize` and fixing critical C11 atomic header incompatibilities (`zend_atomic.h`) within the XAMPP environment using stream editors (`sed`).</li>
+                    <li><strong>Redis Data Structures in PHP:</strong> I managed data beyond simple strings by utilizing Redis Hashes (`hSet`, `hGet`, `hGetAll`) to store user objects and Lists (`lPush`, `lRange`, `rPop`) to manage task queues directly through the PHP Redis object.</li>
+                </ul>
+
+                <div class="section-title">3. Personal Reflection</div>
+                <p>
+                    The initial setup was demanding, especially troubleshooting the header compilation errors in Linux. However, successfully patching the system and seeing the `phpinfo()` screen confirm the Redis module was active felt incredibly rewarding. Understanding the logic of the caching flow diagram changed how I view web performance optimization.
+                </p>
+
+                <div class="section-title">4. Proposed Improvements</div>
+                <p>
+                    Instead of relying solely on TTL for cache expiration, I would implement active cache invalidation. This means the system would proactively delete or update the Redis cache whenever a Harvester or Olive Tree record is modified or deleted in the MySQL database.
+                </p>
+
+                <div class="section-title">5. Technical Glossary</div>
+                <ul class="tech-list">
+                    <li><strong>Cache:</strong> A hardware or software component that stores data so that future requests for that data can be served faster.</li>
+                    <li><strong>TTL (Time-to-Live):</strong> A mechanism that limits the lifespan or lifetime of data in a computer or network, used here to expire old cache data.</li>
+                    <li><strong>phpize:</strong> A shell script used to prepare the build environment for a PHP extension.</li>
+                    <li><strong>build-essential / autoconf:</strong> Packages containing compilers and necessary tools for building software from source code in Linux.</li>
+                </ul>
+
+                <div class="section-title">6. Assignment Rating & Feedback</div>
+                <div class="rating-box">
+                    <strong>Rating:</strong> 9.5/10 <br>
+                    <strong>Reason:</strong> A challenging but extremely valuable introduction to enterprise-level performance optimization and server administration.
+                </div>
+            </div>
+        </article>
+
     </main>
 
     <footer>

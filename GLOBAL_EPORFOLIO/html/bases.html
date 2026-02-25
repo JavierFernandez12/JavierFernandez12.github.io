@@ -197,6 +197,132 @@
             </div>
         </article>
 
+        <article class="challenge-card">
+            <div class="card-header">
+                <h3>Challenge #5: NoSQL Database Managers Study</h3>
+                <span class="badge">NoSQL / Cassandra / DynamoDB</span>
+            </div>
+            <div class="card-body">
+                <div class="section-title">1. Challenge Overview</div>
+                <p>
+                    In this team challenge, we studied and compared different NoSQL database managers: Redis, Cassandra, and Amazon DynamoDB. The deliverables included documentation of our study, documentation outlining the differences between each manager, and an individual e-portfolio. We concluded the project with an equitable class presentation delivered without reading from our notes.
+                </p>
+
+                <div class="section-title">2. Key Complex Concepts Learned</div>
+                <ul>
+                    <li><strong>SQL vs. NoSQL Priorities:</strong> SQL databases prioritize data integrity and consistency. In contrast, NoSQL databases prioritize availability and the speed of growth.</li>
+                    <li><strong>Use Cases:</strong> NoSQL databases excel when handling massive volumes of data or when the information structure is unpredictable. SQL databases are better suited for managing data with fixed and limited structures, such as a local store's inventory.</li>
+                </ul>
+
+                <div class="section-title">3. Personal Reflection</div>
+                <p>
+                    Researching these different technologies broadened my understanding of the database landscape. Presenting the concepts without reading forced us to truly understand the core differences between consistency-first and availability-first systems.
+                </p>
+
+                <div class="section-title">4. Proposed Improvements</div>
+                <p>
+                    For future presentations, creating a hands-on live demo of Cassandra or DynamoDB handling a massive dataset would visually reinforce the concepts of horizontal scaling better than just theoretical slides.
+                </p>
+
+                <div class="section-title">5. Technical Glossary</div>
+                <ul class="tech-list">
+                    <li><strong>Cassandra:</strong> A highly scalable, distributed NoSQL database designed to handle large amounts of data across many commodity servers.</li>
+                    <li><strong>DynamoDB:</strong> A fully managed proprietary NoSQL database service that supports key-value and document data structures, offered by Amazon Web Services.</li>
+                    <li><strong>High Availability:</strong> A characteristic of a system that aims to ensure an agreed level of operational performance, usually uptime, for a higher than normal period.</li>
+                </ul>
+
+                <div class="rating-box">
+                    <strong>6. Assignment Rating:</strong> 8/10 <br>
+                    <strong>Reason:</strong> Great theoretical foundation for understanding when to step away from traditional relational models.
+                </div>
+            </div>
+        </article>
+
+        <article class="challenge-card">
+            <div class="card-header">
+                <h3>Challenge #6: MongoDB & Document Design</h3>
+                <span class="badge">MongoDB / Docker / Compass</span>
+            </div>
+            <div class="card-body">
+                <div class="section-title">1. Challenge Overview</div>
+                <p>
+                    This practice focused on MongoDB, starting with installing the latest official version using Docker. I researched and explained core concepts like document-based models, horizontal scalability, high availability, and aggregations. The core task was designing MongoDB document structures based on two relational schemas: a fruit database (Mandarins, Peaches, Caquis) and an E-commerce system (Users, Orders, Products). I then executed 10 specific queries, doing the process twice: once via the terminal and once using the graphical interface MongoDB Compass.
+                </p>
+
+                <div class="section-title">2. Key Complex Concepts Learned</div>
+                <ul>
+                    <li><strong>Schema Migration:</strong> I learned how to transition from normalized relational tables (using Primary and Foreign Keys) into embedded or referenced NoSQL documents, optimizing for query performance rather than storage space.</li>
+                    <li><strong>Advanced Queries & Aggregations:</strong> Executing complex lookups, such as finding users who ordered a specific product ("Mouse") or grouping orders by user to calculate total expenditures.</li>
+                </ul>
+
+                <div class="section-title">3. Personal Reflection</div>
+                <p>
+                    Reflecting on the methods, working from the terminal requires precise syntax knowledge, which is great for learning, whereas MongoDB Compass offers a more intuitive, visual approach to building queries and exploring data. The shift from rows/columns to JSON-like documents felt incredibly natural for modern web development.
+                </p>
+
+                <div class="section-title">4. Proposed Improvements</div>
+                <p>
+                    I would like to dive deeper into <strong>Indexing</strong> strategies in MongoDB, measuring how different index types impact the performance of heavy aggregation pipelines on massive collections.
+                </p>
+
+                <div class="section-title">5. Technical Glossary</div>
+                <ul class="tech-list">
+                    <li><strong>Document-based Model:</strong> A database that stores data in JSON-like documents rather than rows and columns.</li>
+                    <li><strong>Horizontal Scalability:</strong> The ability to increase capacity by connecting multiple hardware or software entities so that they work as a single logical unit.</li>
+                    <li><strong>Aggregations:</strong> Operations that process data records and return computed results, often used for data analysis.</li>
+                    <li><strong>MongoDB Compass:</strong> The official GUI for MongoDB that allows users to analyze documents and visualize schemas.</li>
+                </ul>
+
+                <div class="rating-box">
+                    <strong>6. Assignment Rating:</strong> 9/10 <br>
+                    <strong>Reason:</strong> The practical schema design exercise was an excellent bridge between SQL and NoSQL paradigms.
+                </div>
+            </div>
+        </article>
+
+        <article class="challenge-card">
+            <div class="card-header">
+                <h3>Challenge #7: Redis In-Memory Datastore</h3>
+                <span class="badge">Redis / Key-Value / In-Memory</span>
+            </div>
+            <div class="card-body">
+                <div class="section-title">1. Challenge Overview</div>
+                <p>
+                    In this challenge, I installed and configured the Redis server on Linux, managing its service states using `systemctl`. I worked extensively through the terminal client (`redis-cli`), practicing basic key operations like `SET`, `GET`, and setting expiration times with `SETEX` and `TTL`. The practice covered various data structures including Lists, Sets, and Hashes. Finally, I applied these structures to real-world scenarios: an inventory system, a shopping cart, a user ranking system using sorted sets, a notification queue, and a task control system.
+                </p>
+
+                <div class="section-title">2. Key Complex Concepts Learned</div>
+                <ul>
+                    <li><strong>Data Structures in Memory:</strong> I learned how to choose the right structure for the job. For example, using Hashes (`HSET`, `HGET`) for object-like data in an inventory, and Lists (`LPUSH`, `LRANGE`) for a shopping cart or queue simulation.</li>
+                    <li><strong>Sorted Sets for Rankings:</strong> Implementing a user ranking system was straightforward using `ZADD` and querying it with `ZRANGE` and `ZREVRANK`, which automatically orders elements by score.</li>
+                    <li><strong>Database Administration:</strong> I practiced server management commands like `FLUSHDB` to clear keys, `INFO` to get server stats, `MONITOR` for real-time debugging, and `SAVE`/`BGSAVE` for backups.</li>
+                </ul>
+
+                <div class="section-title">3. Personal Reflection</div>
+                <p>
+                    Redis is incredibly fast. The instant response to `PING` with `PONG` was just the beginning. Using the official visual client, <strong>RedisInsight</strong>, made it much easier to visualize how the data structures (especially complex Hashes and Sets) were being stored in real-time.
+                </p>
+
+                <div class="section-title">4. Proposed Improvements</div>
+                <p>
+                    To make the task control system more robust, I would implement <strong>Pub/Sub (Publish/Subscribe)</strong> messaging to notify other services instantly when a task is marked as completed or removed from the list.
+                </p>
+
+                <div class="section-title">5. Technical Glossary</div>
+                <ul class="tech-list">
+                    <li><strong>Key-Value Store:</strong> A data storage paradigm designed for storing, retrieving, and managing associative arrays.</li>
+                    <li><strong>TTL (Time To Live):</strong> A value that determines the lifespan of a key in the database before it is automatically deleted.</li>
+                    <li><strong>Hashes:</strong> Maps between string fields and string values, perfect to represent objects.</li>
+                    <li><strong>RedisInsight:</strong> A powerful graphical interface provided by Redis for interacting with and managing Redis databases.</li>
+                </ul>
+
+                <div class="rating-box">
+                    <strong>6. Assignment Rating:</strong> 9.5/10 <br>
+                    <strong>Reason:</strong> Very hands-on. Simulating real app features like carts and rankings solidified my understanding of caching and in-memory data.
+                </div>
+            </div>
+        </article>
+
     </main>
 
     <footer>

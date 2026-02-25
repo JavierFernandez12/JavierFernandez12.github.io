@@ -118,6 +118,135 @@
             </div>
         </article>
 
+                <article class="challenge-card">
+            <div class="card-header">
+                <h3>Challenge #3: Navarredonda Visual App</h3>
+                <span class="badge">Python / Tkinter / GUI</span>
+            </div>
+            <div class="card-body">
+                
+                <div class="section-title">1. Challenge Overview</div>
+                <p>
+                    [cite_start]I transformed the previous Navarredonda console simulator into a visual application using the Python Tkinter library[cite: 380]. [cite_start]The application features a main screen with an image, and a top menu bar with "Calcular", "Ver Resultado", and "Salir" options[cite: 381, 383]. [cite_start]Under the "Calcular" menu, I created submenus ("Persona", "Grupo", "Tipo de día") that open separate windows to capture user data using inputs, checkboxes, and radio buttons[cite: 384, 386, 387, 389, 393, 408, 420]. [cite_start]Finally, the "Ver Resultado" window calculates the final price based on the input or uses default fallback values (e.g., Age 21, Height 1.55cm) if information is missing[cite: 430, 432].
+                </p>
+
+                <div class="section-title">2. Key Complex Concepts Learned</div>
+                <ul>
+                    [cite_start]<li><strong>Event-Driven Programming:</strong> Learning how to bind functions to GUI events, such as opening a new window or saving data when a button like "Guardar" or "Usar selección" is clicked[cite: 394, 404, 408, 417, 420, 427].</li>
+                    <li><strong>State Management across Windows:</strong> Handling data flow between different Tkinter <code>Toplevel</code> windows. [cite_start]The challenge was ensuring that the data entered in the "Persona" window persisted and could be accessed by the main calculation function[cite: 394].</li>
+                </ul>
+
+                <div class="section-title">3. Personal Reflection</div>
+                <p>
+                    Transitioning from a text-based console to a Graphical User Interface was a major leap. [cite_start]Managing the layout and ensuring checkboxes appeared "checked 80% of the times" [cite: 393] required creative logic within the GUI framework. [cite_start]It felt satisfying to see the final price displayed in a large, bold blue font on the result screen[cite: 434, 435, 436].
+                </p>
+
+                <div class="section-title">4. Proposed Improvements</div>
+                <p>
+                    I would improve the user experience by adding input validation directly within the GUI (e.g., preventing the user from entering text in the "Edad" field) and using popup message boxes (<code>messagebox.showerror</code>) to alert them immediately instead of relying on fallback values later.
+                </p>
+
+                <div class="section-title">5. Technical Glossary</div>
+                <ul class="tech-list">
+                    [cite_start]<li><strong>Tkinter:</strong> The standard GUI (Graphical User Interface) library for Python[cite: 380].</li>
+                    [cite_start]<li><strong>Radio Button:</strong> A graphical control element that allows the user to choose only one of a predefined set of mutually exclusive options (e.g., Province: Madrid or Other)[cite: 393, 401, 402, 403].</li>
+                    [cite_start]<li><strong>Checkbox:</strong> A GUI widget that permits the user to make a binary choice (e.g., "Es socio")[cite: 393, 400].</li>
+                </ul>
+
+                <div class="section-title">6. Assignment Rating & Feedback</div>
+                <div class="rating-box">
+                    <strong>Rating:</strong> 8.5/10 <br>
+                    <strong>Reason:</strong> A highly practical introduction to desktop application development and state management.
+                </div>
+            </div>
+        </article>
+
+                <article class="challenge-card">
+            <div class="card-header">
+                <h3>Challenge #4: Flask Gordon - Web Car Dashboard</h3>
+                <span class="badge">Python / Flask / Web Dev</span>
+            </div>
+            <div class="card-body">
+                
+                <div class="section-title">1. Challenge Overview</div>
+                <p>
+                    [cite_start]I developed a web application using Python and the Flask framework to simulate a car dashboard[cite: 440, 457]. [cite_start]The app is divided into a visual top section displaying the car's state (Engine On/Off, Speed, Turn Signals) and a bottom control panel with functional buttons[cite: 461, 462, 463, 464, 465, 466, 470, 471]. [cite_start]The system enforces strict operational logic: actions like accelerating, turning, or using the horn (which plays a real audio file) are only available after the car is explicitly started[cite: 488, 492, 493, 494, 495, 496, 497, 498, 499, 520, 521, 522].
+                </p>
+
+                <div class="section-title">2. Key Complex Concepts Learned</div>
+                <ul>
+                    [cite_start]<li><strong>Virtual Environments:</strong> I learned the importance of isolating project dependencies by creating and activating a Python virtual environment (<code>venv</code>) before installing Flask[cite: 441, 442, 444, 449, 450, 453].</li>
+                    [cite_start]<li><strong>State Management & Logic Constraints:</strong> Implementing complex rules such as adjusting speed by a user-defined increment without going below 0 km/h [cite: 476, 502, 503, 504, 505, 506, 507][cite_start], managing mutually exclusive turn signals that stop upon acceleration [cite: 469, 508, 510, 511, 515, 516, 517, 519][cite_start], and resetting all states to zero when the car is turned off[cite: 524, 525, 526, 527, 528].</li>
+                </ul>
+
+                <div class="section-title">3. Personal Reflection</div>
+                <p>
+                    Setting up the Flask environment via the terminal felt very professional. [cite_start]The hardest part was maintaining the correct state on the server and reflecting it visually in real-time on the client side, especially making the turn signal icons blink[cite: 468, 513, 518, 532].
+                </p>
+
+                <div class="section-title">4. Proposed Improvements</div>
+                <p>
+                    Currently, the page likely refreshes on every button press. I would improve the application by implementing <strong>AJAX</strong> or WebSockets to communicate with the Flask backend asynchronously, providing a much smoother, real-time update of the dashboard without reloading the browser.
+                </p>
+
+                <div class="section-title">5. Technical Glossary</div>
+                <ul class="tech-list">
+                    [cite_start]<li><strong>Flask:</strong> A lightweight WSGI web application framework written in Python[cite: 440].</li>
+                    [cite_start]<li><strong>Virtual Environment (venv):</strong> A tool to create isolated Python environments to manage dependencies separately per project[cite: 441, 444].</li>
+                    [cite_start]<li><strong>pip:</strong> The package installer for Python, used to install Flask[cite: 453].</li>
+                </ul>
+
+                <div class="section-title">6. Assignment Rating & Feedback</div>
+                <div class="rating-box">
+                    <strong>Rating:</strong> 9/10 <br>
+                    <strong>Reason:</strong> A comprehensive exercise bridging Python backend logic with a frontend interface.
+                </div>
+            </div>
+        </article>
+
+                <article class="challenge-card">
+            <div class="card-header">
+                <h3>Challenge #5: Jutge Dredd - Algorithmic Training</h3>
+                <span class="badge">Python / Algorithms / Jutge</span>
+            </div>
+            <div class="card-body">
+                
+                <div class="section-title">1. Challenge Overview</div>
+                <p>
+                    I enrolled in the "#Introducció a la programació en Python#" course on the jutge.org platform to rigorous algorithmic training. The task involved solving all the programming problems within the "Comencem!" (Let's begin!) and "Bucles" (Loops) sections, ensuring every submission achieved an "OK" result from the automated judge.
+                </p>
+
+                <div class="section-title">2. Key Complex Concepts Learned</div>
+                <ul>
+                    <li><strong>Strict Algorithmic Problem Solving:</strong> I learned to write code that not only works but handles hidden edge cases and strict input/output formatting demanded by an automated grading system.</li>
+                    <li><strong>Mastery of Iteration:</strong> Deepened my understanding of `for` and `while` loops, learning how to structure conditions efficiently to avoid infinite loops or timeout errors during execution.</li>
+                </ul>
+
+                <div class="section-title">3. Personal Reflection</div>
+                <p>
+                    Working with an automated judge is humbling; a single space or missing character results in a "Presentation Error" or "Wrong Answer". Achieving the green "OK" screens for all the loop exercises felt like earning badges of honor for code precision.
+                </p>
+
+                <div class="section-title">4. Proposed Improvements</div>
+                <p>
+                    Instead of just passing the tests, I would go back and refactor the solutions focusing on <strong>time complexity (Big O notation)</strong>, trying to find mathematical or more optimized ways to solve the looping problems faster.
+                </p>
+
+                <div class="section-title">5. Technical Glossary</div>
+                <ul class="tech-list">
+                    <li><strong>Automated Judge:</strong> An online system used to test programs in programming contests or education by running code against test cases.</li>
+                    <li><strong>Edge Case:</strong> A problem or situation that occurs only at an extreme (maximum or minimum) operating parameter.</li>
+                    <li><strong>Timeout Error (TLE):</strong> An error indicating that the program took too long to execute, usually caused by inefficient algorithms or infinite loops.</li>
+                </ul>
+
+                <div class="section-title">6. Assignment Rating & Feedback</div>
+                <div class="rating-box">
+                    <strong>Rating:</strong> 9/10 <br>
+                    <strong>Reason:</strong> Essential for building resilient coding habits and understanding how code is evaluated objectively.
+                </div>
+            </div>
+        </article>
+
     </main>
 
     <footer>

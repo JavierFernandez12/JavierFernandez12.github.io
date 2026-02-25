@@ -207,6 +207,91 @@
             </div>
         </article>
 
+        <article class="challenge-card">
+            <div class="card-header">
+                <h3>Challenge #5: DMZ & Network Security Architecture</h3>
+                <span class="badge">pfSense / Squid Proxy / OpenVPN</span>
+            </div>
+            <div class="card-body">
+                <div class="section-title">1. Challenge Overview</div>
+                <p>
+                    Working in a team of three, we researched and documented core network security concepts: Firewalls, DMZ, Proxy, and VPN. We then designed and implemented a virtualized network architecture across two challenges. The final environment included two pfSense firewalls (External and Internal), an OpenVPN server located in the DMZ, a dedicated Squid Proxy server on the LAN, and an internal client machine. We concluded the project with an oral presentation.
+                </p>
+
+                <div class="section-title">2. Key Complex Concepts Learned</div>
+                <ul>
+                    <li><strong>Advanced Firewall Routing & NAT:</strong> I configured the External pfSense to handle NAT for internet access and created strict rules to block direct traffic from the DMZ to the LAN, only allowing specific exceptions like the VPN accessing the Proxy on port 3128.</li>
+                    <li><strong>Proxy Filtering & ACLs:</strong> I learned how to configure Squid to restrict network access. I implemented Access Control Lists (ACLs) to block specific domains (like Facebook and YouTube) using a blacklist file and enforced time-based restrictions to only allow browsing during working hours.</li>
+                </ul>
+
+                <div class="section-title">3. Personal Reflection</div>
+                <p>
+                    Connecting the different subnets (WAN, DMZ, LAN) correctly in VirtualBox was a great puzzle. Testing the connectivity was incredibly rewarding; watching the `/var/log/squid/access.log` actively register `TCP_DENIED` when I tried to access a blocked site confirmed that my security policies were actually working.
+                </p>
+
+                <div class="section-title">4. Proposed Improvements</div>
+                <p>
+                    Instead of setting up all the virtual machines manually, I would like to explore Infrastructure as Code (IaC) tools like Vagrant to automate the deployment of the network layout and the pfSense configurations.
+                </p>
+
+                <div class="section-title">5. Technical Glossary</div>
+                <ul class="tech-list">
+                    <li><strong>DMZ (Demilitarized Zone):</strong> A perimeter network that protects an organization's internal local-area network from untrusted traffic.</li>
+                    <li><strong>pfSense:</strong> An open-source firewall and router software distribution based on FreeBSD.</li>
+                    <li><strong>Squid:</strong> A caching and forwarding HTTP web proxy.</li>
+                    <li><strong>ACL (Access Control List):</strong> Rules configured in the proxy or firewall to permit or deny network traffic.</li>
+                    <li><strong>OpenVPN:</strong> A virtual private network system that implements techniques to create secure point-to-point or site-to-site connections.</li>
+                </ul>
+
+                <div class="rating-box">
+                    <strong>6. Assignment Rating:</strong> 9/10 <br>
+                    <strong>Reason:</strong> A robust, enterprise-level simulation that tied many networking and security concepts together perfectly.
+                </div>
+            </div>
+        </article>
+
+        <article class="challenge-card">
+            <div class="card-header">
+                <h3>Challenge #6: OSINT & Phishing Toolkit Analysis</h3>
+                <span class="badge">OSINT / Malware Analysis / Footprinting</span>
+            </div>
+            <div class="card-body">
+                <div class="section-title">1. Challenge Overview</div>
+                <p>
+                    This assignment required conducting a mini-study on various cybersecurity tools, where I had to install, test, and document an example of use for each tool. The scope covered Phishing Toolkits (analyzing headers, IP reputation, links, and attachments) and Open-Source Intelligence (OSINT) tools for investigating passwords, social engineering vectors, emails, social networks, and utilizing specialized search engines. The findings were presented using a textless PowerPoint and Markdown documentation.
+                </p>
+
+                <div class="section-title">2. Key Complex Concepts Learned</div>
+                <ul>
+                    <li><strong>Malware Attachment Analysis:</strong> I learned how to safely analyze suspicious files and links using sandboxing and cloud analysis tools like VirusTotal and Any.run.</li>
+                    <li><strong>Footprinting and OSINT:</strong> Understanding how to gather publicly available data. I used specialized engines like Shodan and checked credential leaks utilizing databases like HaveIBeenPwned.</li>
+                </ul>
+
+                <div class="section-title">3. Personal Reflection</div>
+                <p>
+                    Discovering the sheer volume of information exposed on the internet through tools like Shodan or simple Google Dorks was eye-opening and slightly alarming. Presenting the capabilities of these tools to the class without relying on text slides forced me to truly understand how they functioned rather than just reading definitions.
+                </p>
+
+                <div class="section-title">4. Proposed Improvements</div>
+                <p>
+                    The toolkit document also contained advanced sections for Red Team operations (like Privilege Escalation and Command & Control) and Blue Team incident management. I would love to extend this study to practically test tools like Cobalt Strike or Wazuh in a lab environment.
+                </p>
+
+                <div class="section-title">5. Technical Glossary</div>
+                <ul class="tech-list">
+                    <li><strong>OSINT (Open-Source Intelligence):</strong> Data collected from publicly available sources to be used in an intelligence context.</li>
+                    <li><strong>Phishing:</strong> The fraudulent practice of sending emails purporting to be from reputable companies to induce individuals to reveal personal information.</li>
+                    <li><strong>Shodan:</strong> A search engine designed to locate specific types of computers, webcams, routers, and servers connected to the internet.</li>
+                    <li><strong>Sandboxing:</strong> A security mechanism for separating running programs, often used to execute untested or untrusted programs (e.g., Any.run).</li>
+                </ul>
+
+                <div class="rating-box">
+                    <strong>6. Assignment Rating:</strong> 8.5/10 <br>
+                    <strong>Reason:</strong> Excellent exposure to the actual tools used daily by security professionals for reconnaissance and defense.
+                </div>
+            </div>
+        </article>
+
     </main>
 
     <footer>
